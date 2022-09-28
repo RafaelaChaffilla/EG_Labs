@@ -1,0 +1,22 @@
+\BOOKMARK [0][-]{chapter.2}{Estudo funcional do conversor D/A}{}% 1
+\BOOKMARK [1][-]{section.3}{An\341lise Te\363rica}{chapter.2}% 2
+\BOOKMARK [2][-]{subsection.4}{Obten\347\343o da express\343o te\363rica para a tens\343o de sa\355da do conversor, vo, em fun\347\343o da palavra digital}{section.3}% 3
+\BOOKMARK [1][-]{section.20}{An\341lise Experimental}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.21}{Obten\347\343o dos valores da tens\343o de sa\355da, vo, em fun\347\343o da palavra digital produzida por S1, S2, S3 e S4, com Rf=2R e Rf=4R}{section.20}% 5
+\BOOKMARK [2][-]{subsection.23}{Obten\347\343o das formas de onda dos gr\341ficos vo\(t\) e vClk\(t\) para Rf=2R e Rf=4R a partir do oscilosc\363pio digital}{section.20}% 6
+\BOOKMARK [2][-]{subsection.26}{Varia\347\343o da tens\343o de sa\355da do conversor observada entre dois n\355veis consecutivos, para os dois valores diferentes de Rf }{section.20}% 7
+\BOOKMARK [0][-]{chapter.42}{Influ\352ncia das resist\352ncias de entrada}{}% 8
+\BOOKMARK [1][-]{section.43}{An\341lise Te\363rica}{chapter.42}% 9
+\BOOKMARK [2][-]{subsection.44}{Determina\347\343o da influ\352ncia da varia\347\343o das resist\352ncias R1 a R4, variando uma de cada vez}{section.43}% 10
+\BOOKMARK [2][-]{subsection.60}{Determina\347\343o das altera\347\365es nas caracter\355sticas do circuito diminuindo o valor de uma das resist\352ncias de R1 a R4, uma de cada vez}{section.43}% 11
+\BOOKMARK [1][-]{section.65}{An\341lise Experimental}{chapter.42}% 12
+\BOOKMARK [2][-]{subsection.66}{Obten\347\343o das formas de onda dos gr\341ficos vo\(t\) e vClk\(t\)}{section.65}% 13
+\BOOKMARK [2][-]{subsection.69}{Monoticidade do conversor}{section.65}% 14
+\BOOKMARK [0][-]{chapter.70}{Tempo de estabelecimento}{}% 15
+\BOOKMARK [1][-]{section.72}{An\341lise Te\363rica}{chapter.70}% 16
+\BOOKMARK [1][-]{section.77}{An\341lise Experimental}{chapter.70}% 17
+\BOOKMARK [0][-]{chapter.173}{Picos de tens\343o na transi\347\343o de estados}{}% 18
+\BOOKMARK [1][-]{section.174}{Sinal de entrada e sa\355da}{chapter.173}% 19
+\BOOKMARK [1][-]{section.176}{Picos de tens\343o esp\372rios}{chapter.173}% 20
+\BOOKMARK [1][-]{section.178}{An\341lise de Resultados}{chapter.173}% 21
+\BOOKMARK [0][-]{chapter.179}{Conclus\365es}{}% 22

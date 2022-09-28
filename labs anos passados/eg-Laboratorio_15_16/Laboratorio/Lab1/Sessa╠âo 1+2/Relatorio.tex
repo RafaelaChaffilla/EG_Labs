@@ -1,0 +1,1172 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage[portuges,english]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{bordo}{RGB}{192,0,0} %--Cor fancy que eu gosto!
+\usepackage{makeidx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{indentfirst}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{setspace}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\usepackage{trajan}
+\usepackage{fetamont}
+\usepackage{duerer}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{graphicx,wrapfig,lipsum}
+\usepackage{framed}
+\usepackage{capt-of}
+\usepackage{gensymb}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{empheq}
+\usepackage{nameref} %Para utilizar nameref
+\usepackage[makeroom]{cancel}
+\usepackage{amssymb} %para poder usar \leqslant no math mode
+\usepackage{fancyhdr} %-estilo da pagina
+%\usepackage{showframe}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage{lscape} %para usar página horizontal
+\usepackage{multicol} %para poder por 3 figuras alinhas
+\usepackage{cases}
+
+
+%%% - Caso queira utilizar anexos
+\newcommand{\annexname}{Annex}
+\makeatletter
+\newcommand\annex{\par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \gdef\@chapapp{\annexname}%
+  \gdef\thechapter{\@Roman\c@chapter}}
+\makeatother
+
+%%%   Para que os capitulos so tenham o titulo e nao a numeraçao de capitulo%%%%%%
+  \usepackage{titlesec}
+  \titleformat{\chapter}
+  {\Large\bfseries} % format
+  {}                % label
+  {0pt}             % sep
+  {\Huge}           % before-code
+  
+ 
+  
+\hypersetup{
+    pdftitle={Electronica Geral},    % title
+    pdfauthor={Afonso Mendes, David Escudeiro, Élio Pereira, Pedro Pinto},     % author
+    }
+
+
+
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}} %para usar o simbolo de paralelo em circuitos
+
+
+%-Poupar papel
+%%%%%\setlength{\headheight}{12pt}
+%%%%%\setlength{\voffset}{-50pt}
+%\setlength{\hoffset}{-72.27pt}
+%%%%%\setlength{\textheight}{692pt}
+%%%%%\setlength{\footskip}{30pt}
+%\setlength{\marginparwidth}{0pt}
+%%%%%\setlength{\marginparsep}{0pt}
+%%%%%\setlength{\textwidth}{450pt}
+%%%%%\setlength{\oddsidemargin}{0pt}
+%%%%%\setlength{\evensidemargin}{0pt}
+%%%%%\setlength{\marginparsep}{0pt}
+
+
+
+
+
+
+%---------------------COMEÇA O DOCUMENTO---------------------%
+%---------------------COMEÇA O DOCUMENTO---------------------%
+%---------------------COMEÇA O DOCUMENTO---------------------%
+%---------------------COMEÇA O DOCUMENTO---------------------%
+%---------------------COMEÇA O DOCUMENTO---------------------%
+
+\begin{document}
+	\selectlanguage{portuges}
+	
+ 
+\begin{titlepage}
+
+	\begin{flushleft}
+	\includegraphics[width=0.6\textwidth]{./logo}~\\[4cm]
+	\end{flushleft}
+
+\begin{center}
+\begin{spacing}{2}
+
+	\textsc{\LARGE Electrónica Geral}\\[1cm]
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Filtros Activos e Osciladores}\\[0.4cm]
+
+\HRule \\[1.5cm]
+
+\end{spacing}
+
+	\vspace{2cm}
+
+	Afonso Mendes, \quad 75398\\
+	David Escudeiro \quad 75479\\
+	Élio Pereira, \quad 78535\\
+	Pedro Pinto, \quad 75239\\
+	\vspace{4cm}
+	\today 
+
+\end{center}
+
+
+\end{titlepage}
+
+
+\addtocontents{toc}{\protect\thispagestyle{empty}} %para nao ter numeraçao de pagina na pagina da ToC
+\tableofcontents %put toc in
+%\setcounter{secnumdepth}{-2} %para as secçoes nao apresentarem numero no indice
+%\cleardoublepage %start new page
+\setcounter{page}{1} %reset the page counter
+%%-estilo da pagina
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{2pt} 
+%\lhead[Electrónica Geral]{Electrónica Geral}
+%\chead[]{}
+%\rhead[Filtros Activos e Osciladores]{Filtros Activos e Osciladores}
+%\lfoot[]{}
+%\cfoot[\thepage]{\thepage}
+%\rfoot[]{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Secção Biquadrática de Kerwin, Huelsman e Newcomb (KHN)}
+
+Para a análise do circuito neste capítulo optou-se por abordar primeiramente a resposta teórica em frequência do circuito e de seguida a resposta experimental. Depois são analisadas as características do circuito, teórica e experimentalmente com as devidas conclusões.
+
+\section{Funções de transferência a partir do DFS}
+
+\begin{center}
+     \includegraphics[angle=0,width=0.7\textwidth]{dfskhn.png}
+     \captionof{figure}{DFS da secção biquadrática de Kerwin, Huelsman e Newcom (KHN).}
+     \label{fig:dfskhn}
+     \end{center}
+
+De forma a obter as funções de transferência de cada saída para a entrada do DFS da figura \ref{fig:dfskhn}, determina-se o seguinte sistema, decorrente da análise do mesmo:
+\begin{equation*}
+\left\{ \begin{matrix*}[l]
+ V_1=Kv_i+\dfrac{1}{Q}V_2-V_3\\[0.3cm]
+ V_2=\dfrac{-1}{sT}V_1\\[0.4cm]
+ V_3=\dfrac{-1}{sT}V_2
+\end{matrix*} \right.\Leftrightarrow
+\left\{ \begin{matrix*}[l]
+ V_1=KV_i+\dfrac{1}{Q}V_2-V_3\\
+ V_2=\dfrac{-1}{sT}V_1\\[0.3cm]
+ V_3=\Big(\dfrac{-1}{sT}\Big)^2V_1
+\end{matrix*} \right.\Leftrightarrow
+\left\{ \begin{matrix*}[l]
+ V_1=KV_i-\dfrac{w_p}{sQ}V_1-\dfrac{w_p^2}{s^2}V_1\\[0.4cm]
+ V_2=\dfrac{-w_p}{s}V_1\\[0.3cm]
+ V_3=\dfrac{w_p^2}{s^2}V_1
+\end{matrix*} \right.\Leftrightarrow
+\end{equation*}
+\begin{equation*}
+\Leftrightarrow\left\{ \begin{matrix*}[l]
+ V_1\bigg(1+\dfrac{w_p}{sQ}+\dfrac{w_p^2}{s^2}\bigg)=KV_i\\[0.4cm]
+ V_2=\dfrac{-w_p}{s}V_1\\[0.3cm]
+ V_3=\dfrac{w_p^2}{s^2}V_1
+\end{matrix*} \right.\Leftrightarrow
+\left\{ \begin{matrix*}[l]
+ \dfrac{V_1}{V_i}=\dfrac{K}{1+\frac{w_p}{sQ}+\frac{w_p^2}{s^2}}\\[0.5cm]
+ V_2=-\dfrac{w_p}{s}V_1\\[0.3cm]
+ V_3=\dfrac{w_p^2}{s^2}V_1
+\end{matrix*} \right.\Leftrightarrow
+\end{equation*}
+
+\begin{equation} \label{eq:ftDFSKHN}
+\Leftrightarrow\left\{ \begin{matrix*}[l]
+ T_1=\dfrac{V_1}{V_i}=\dfrac{Ks^2}{s^2+\frac{w_p}{Q}s+w_p^2}\\[0.5cm]
+ T_2=\dfrac{V_2}{V_i}=-\dfrac{Kw_ps}{s^2+\frac{w_p}{Q}s+w_p^2}\\[0.5cm]
+ T_3=\dfrac{V_3}{V_i}=\dfrac{Kw_p^2}{s^2+\frac{w_p}{Q}s+w_p^2}
+ \end{matrix*} \right.
+\end{equation}\\
+
+
+Relativamente a $T_1$, a resposta em frequência é característica de um filtro passa-alto, pois atenua os valores para frequências baixas, $\omega\approx 0$, e deixa passar o sinal para frequências elevadas. Isto verifica-se fazendo $\lim_{\omega\to0}T_1(j\omega)=0$ e $\lim_{\omega\to\infty} T_1(j\omega)=K$.
+
+
+
+Para a função de transferência $T_2$, o numerador tem um zero em $s=0$ revelando um filtro passa-banda. Tanto as altas e baixas frequências são atenuadas e apenas as frequências perto de $\omega_p$ é que passam, ou seja, $\lim_{\omega\to 0}T_2(j\omega)=0$ e $\lim_{\omega\to\infty}T_2(j\omega)=0$. Quanto à banda passante é centrada em $w_p$ (que se deduz calculando $\frac{dT_2}{ds}=0\Rightarrow s=w_p$) e $\lim_{\omega\to w_p}|T_2(j\omega)|=KQ$.
+
+Por último, $T_3$ é um filtro passa baixo. Atenua as altas frequências e deixa passar as baixas frequências como se pode verificar por $\lim_{\omega\to 0}T_3(j\omega)=K$ e $\lim_{\omega\to\infty}T_3(j\omega)=0$.
+
+Para as três funções de transferência verifica-se que o denominador é igual $(s^2+\dfrac{w_p}{Q}s+w_p^2)$ e os pólos são $\Bigg(s\pm\frac{\sqrt{-(4Q^2-1)w_p^2}-w_p}{2Q}\Bigg)$.
+
+\section{Análise do Circuito}
+\begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{khn.png}
+     \captionof{figure}{Secção biquadrática de Kerwin, Huelsman e Newcom (KHN).}
+     \label{fig:khn}
+     \end{center}
+     
+Analisando o circuito da figura \ref{fig:khn}, note-se que à entrada se tem um circuito de diferença com a particularidade de que no terminal de entrada positivo a resistência $P_2$ não está ligada à massa mas sim à entrada $V_2$. Por essa razão, não é possível utilizar a expressão deduzida nos slides das aulas teóricas para a tensão de saída de um circuito de diferença e iremos, então, aplicar as leis de Kirchhoff ao circuito de forma a chegar à relação desejada.
+
+\begin{center}
+     \includegraphics[angle=0,width=0.5\textwidth]{cdif.png}
+     \captionof{figure}{Sub-sircuito elementar de diferença.}
+     \label{fig:cdif}
+     \end{center}
+
+
+Assumindo o amplificador operacional ideal, as impedâncias de entrada consideram-se infinitas e o ganho do amplificador também infinito. Daqui resulta:
+\begin{equation} \label{eq:ampopideal}
+\left\{ \begin{matrix*}[l]
+	V^+=V^-\Leftrightarrow V_B=V_A\\
+	I^+=I^-=0
+	\end{matrix*} \right.
+\end{equation}
+
+Ora, aplicando a lei dos nós
+\begin{itemize}
+\item 
+$\frac{V_A-V_1}{R_5}=\frac{V_3-V_A}{R_2}\Leftrightarrow V_A=\dfrac{R_5V_3+R_2V_1}{R_5+R_2}$
+\item
+$\frac{V_i-V_B}{R_3}=\frac{V_B-V_2}{P_2}\Leftrightarrow V_B=\dfrac{P_2V_i+R_3V_2}{R_3+P_2}$
+\end{itemize}
+
+Fazendo então $V_A=V_B$:
+
+\begin{equation*}
+(R_3+P_2)[R_5V_3+R_2V_1]=(R_5+R_2)[P_2V_i+R_3V_2]\Leftrightarrow
+\end{equation*}
+
+\begin{equation}\label{eq:v1}
+\Leftrightarrow V_1=(P_2V_i+R_3V_2)\frac{1}{R_2}\dfrac{R_2+R_5}{R_3+P_2}-\frac{R_5}{R_2}V_3
+\end{equation}
+	
+	
+
+Analisando novamente o esquema inteiro, constata-se que mais à direita se tem um circuito integrador-inversor precedido por outro igual. Com base nos resultados apresentados nos slides das aulas teóricas, podemos então escrever:
+
+\begin{itemize}
+\item $\dfrac{V_3}{V_2}=-\dfrac{1}{sC_2R_{11}}$
+\item $\dfrac{V_2}{V_1}=-\dfrac{1}{sC_1R_6}$
+\item $\dfrac{V_3}{V_1}=\dfrac{V_3}{V_2}\dfrac{V_2}{V_1}=\dfrac{1}{s^2C_1C_2R_6R_{11}}$
+\end{itemize}
+
+Resolvendo a equação \ref{eq:v1} em ordem a $V_1/V_i$ e tomando a seguinte simplificação...
+
+\begin{equation*}
+A=\dfrac{1}{R_2}\dfrac{R_2+R_5}{R_3+P_2}
+\end{equation*}
+
+...deduz-se então
+
+\begin{equation*}
+V_1=(P_2V_i+R_3V_2)A-\frac{R_5}{R_2}V_3\Leftrightarrow V_1=P_2AV_i+AR_3V_1\Bigg(-\frac{1}{sC_1R_6}\Bigg)-\frac{R_5}{R_2}\frac{V_1}{s^2C_1C_2R_6R_{11}}\Leftrightarrow
+\end{equation*}
+\begin{equation*}
+V_1\Bigg[1+\frac{R_3A}{sC_1R_6}+\frac{R_5}{R_2}\frac{1}{s^2C_1C_2R_6R_{11}}\Bigg]=V_iP_2A\Leftrightarrow \frac{V_1}{V_i}=\frac{s^2C_1C_2R_6R_{11}P_2A}{s^2C_1C_2R_6R_{11}+sR_3AC_2R_{11}+R_5/R_2}\Leftrightarrow
+\end{equation*}
+\\
+\begin{equation}\label{eq:T1}
+\Leftrightarrow\boxed{\dfrac{V_1}{V_i}=\dfrac{s^2P_2A}{s^2+s\frac{R_3A}{C_1R_6}+\frac{R_5}{C_1C_2R_2R_6R_{11}}}=\dfrac{s^2}{s^2+2.1277\times 10^4s+4.527\times 10^8}}
+\end{equation}\\
+
+Para deduzir as funções de transferência para $V_2$ e $V_3$ basta voltar atrás e aplicar o que já foi mostrado:
+\begin{equation}\label{eq:T2}
+\boxed{\dfrac{V_2}{V_i}=\dfrac{V_2}{V_1}\dfrac{V_1}{V_i}=-\dfrac{s\frac{P_2A}{C_1R_6}}{s^2+s\frac{R_3A}{C_1R_6}+\frac{R_5}{C_1C_2R_2R_6R_{11}}}=-\dfrac{2.1277\times 10^4s}{s^2+2.1277\times 10^4s+4.527\times 10^8}}
+\end{equation}\\
+\begin{equation}\label{eq:T3}
+\boxed{\dfrac{V_3}{V_i}=\dfrac{V_3}{V_1}\dfrac{V_1}{V_i}=\dfrac{\frac{P_2A}{C_1C_2R_6R_{11}}}{s^2+s\frac{R_3A}{C_1R_6}+\frac{R_5}{C_1C_2R_2R_6R_{11}}}=\dfrac{4.527\times 10^8}{s^2+2.1277\times 10^4s+4.527\times 10^8}}
+\end{equation}
+
+\section{Resultados obtidos e diagramas de Bode}
+Durante a sessão laboratorial observou-se cada uma das saídas do circuito (correspondentes a cada um dos filtros) de forma a poder comparar os resultados teóricos com valores experimentais. Após análise dos dados obtidos, é possível sobrepor a informação recolhida experimentalmente nos diagramas de Bode esperados para cada um dos filtros. O tratamento dos dados recolhidos em laboratório foi realizado em \textbf{\emph{Matlab}} e consiste nos seguintes passos:
+\begin{enumerate}
+\item Leitura dos vectores de dados da saída e da entrada do ficheiro \textbf{EXCEL} correspondentes a cada frequência utilizada;
+\item Estimação da amplitude de ambos os sinais através da média da diferença entre o máximo e o mínimo de cada vector;
+\item Obtenção da magnitude da função de transferência como razão entre as amplitudes estimadas;
+\item Conversão da magnitude para dB e do vector das frequências para frequências angulares;
+\item Realização do plot em escala semi-logarítmica de $\omega$ para magnitude.
+\end{enumerate}
+\paragraph{}
+A sobreposição dos dados obtidos com as curvas teóricas resulta então nos gráficos seguintes.
+\begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{KHNT1exp.png}
+     \captionof{figure}{Diagrama de Bode de $T_1$ com pontos experimentais.}
+     \label{fig:KHNT1exp}
+     \end{center}
+
+\begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{KHNT2exp.png}
+     \captionof{figure}{Diagrama de Bode de $T_2$ com pontos experimentais.}
+     \label{fig:KHNT2exp}
+     \end{center}
+     
+     \begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{KHNT3exp.png}
+     \captionof{figure}{Diagrama de Bode de $T_3$ com pontos experimentais.}
+     \label{fig:KHNT3exp}
+     \end{center}
+
+
+É possível concluir que todos as saídas apresentam a característica esperada para o tipo de filtro correspondente.\\
+\indent O erro obtido nas duas menores frequências utilizadas na resposta $T1$ pode ser explicado pela sobreposição do ruído de baixas frequências e a grande atenuação do sinal de entrada (filtro passa-alto), o que gera um sinal de saída que, de facto, não se assemelha a uma onda sinusoidal como esperado. As respostas dos outros dois filtros, no entanto, não apresentam tanta atenuação a frequências baixas e, portanto, os pontos experimentais coincidem de forma satisfatória com a previsão teórica.
+\section{Valores teóricos e experimentais de $K$, $\omega_p$ e $Q$}
+
+Como esperado após a análise inicial do DFS, o denominador é igual para a três funções de transferência, quando escritas em função dos componentes do circuito. Comparando então os coeficientes do denominador de \ref{eq:T1} com os coeficientes de \ref{eq:ftDFSKHN} e substituindo valores:
+
+\begin{equation} \label{eq:KHNKteorico}
+K=P_2A=\frac{P_2}{R_2}\frac{R_2+R_5}{R_3+P_2}=1
+\end{equation}
+
+\begin{equation} \label{eq:KHNwpteorico}
+\omega_p=\sqrt{\frac{R_5}{C_1C_2R_2R_6R_{11}}}=2.1277\times 10^{4} \quad (\textrm{rad/s})
+\end{equation}
+
+\begin{equation} \label{eq:KHNQteorico}
+Q=\omega_p\bigg/\bigg(\frac{R_3A}{C_1R_6}\bigg)=\dfrac{R_3+P_2}{R_3}\sqrt{\dfrac{C_1R_2R_5R_6}{C_2R_{11}(R_2+R_5)}}=1
+\end{equation}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{||c|c|c||}
+\hline
+\textbf{Característica}               & \textbf{Valor teórico} & \textbf{Valor Experimental} \\ \hline\hline
+Constante de ganho $K$                & $1$                    & $1.0426$                    \\ \hline
+Frequência natural $\omega_p$ (rad/s) & $21277$                & $21830$                     \\ \hline
+Factor de qualidade $Q$               & $1$                    & $1.2264$                    \\ \hline
+\end{tabular}
+\caption{Valores teóricos e experimentais para as características dos filtros.\label{tab:KQwpexperimentais}}
+\end{table}
+
+O valor experimental da constante de ganho $K$ é obtido observando o valor do filtro passa-baixo, ou seja, $T_3$, a baixas frequências. Esta conclusão pode ser tirada tomando em consideração a terceira equação do sistema \ref{eq:ftDFSKHN}. Posto isto, utiliza-se como valor de $K$ experimental o valor de $T_3$ obtido na frequência mais baixa utilizada, ou seja, o ponto mais à esquerda na figura \ref{fig:KHNT3exp}. Daqui retiramos então:
+\[
+\widehat{K}=0.362\,\textrm{dB}=1.0426
+\]
+
+Para obter $\omega_p$ e $Q$ necessitamos de um tratamento de dados mais extensivo. Ora, $\omega_p$ corresponde, no diagrama de bode de $T_2$, à frequência de maior ganho e a razão $\omega_p/Q$ corresponde à diferença entre as duas frequências angulares que produzem um ganho inferior em $3\,\textrm{dB}$ ao ganho máximo. Estas relações são apresentadas nos slides das aulas teóricas, de onde se retira o seguinte esquema representativo e onde se tem $a_1=K\,\omega_p$.
+
+     \begin{center}
+     \includegraphics[angle=0,width=0.6\textwidth]{passabanda.png}
+     \captionof{figure}{Características do Diagrama de Bode de um Filtro Passa-Banda de segunda ordem.}
+     \label{fig:passabanda}
+     \end{center}
+
+Como nenhum dos pontos experimentais coincide com o ganho máximo ou com um ganho inferior em $3\,\textrm{dB}$ a esse, decidiu-se fazer uma interpolação por \textit{splines} aos dados obtidos de forma a pode estimar o valor das frequências e dos ganhos nos pontos desejados mas sem ignorar os valores experimentais. Na figura seguinte apresenta-se a curva obtida sobreposta pelos valores que lhe deram origem.
+
+     \begin{center}
+     \includegraphics[angle=0,width=0.7\textwidth]{fitbanda.png}
+     \captionof{figure}{Interpolação dos valores experimentais do filtro passa-banda ($T_2$).}
+     \label{fig:fitbanda}
+     \end{center}
+
+É evidente que a curva obtida não apresenta características passa-banda nas baixas frequências. Contudo, para os valores que pretendemos obter não importa o valor dos ganhos nessa gama de frequências. De facto, apenas necessitamos de estimar o comportamento do filtro próximo das frequências utilizadas experimentalmente na banda passante. Analisando então desta forma a curva obtida, basta procurar o seu valor máximo e a frequência angular correspondente para se obter:
+\[
+\widehat{\omega_p}=2.1830\times 10^4\quad (\textrm{rad/s})
+\]
+
+Como já foi explicado, para a obtenção do factor de qualidade apenas necessitamos de encontrar o ponto à esquerda do máximo onde o ganho é inferior em $3\,\textrm{dB}$ e ver a distância $d$ a que está da frequência de ganho máximo. Daqui resulta então:
+\[
+\widehat{Q}=\frac{\omega_p}{2d}=1.2264
+\]
+
+É importante referir que, de facto, a curva obtida por \textit{splines} não apresenta a mesma forma que a esperada na figura \ref{fig:passabanda}. Não só nas altas frequências, como já foi explicado, mas também na banda passante. A razão para tal reside no reduzido número de pontos utilizados na sessão laboratorial. Com um maior número de pontos na banda passante teria sido possível obter uma característica mais realista. Contudo, observamos que os valores obtidos na tabela \ref{tab:KQwpexperimentais} não divergem muito do esperado e, tendo em conta a precisão que era possível obter estes resultados são, pelos motivos explicados, satisfatórios.
+
+\section{Influência do Potenciómetro nas Características do Filtro}
+
+Utilizando o potenciómetro $P_2$ como um divisor de tensão variável, o circuito inicial da figura \ref{fig:khn} altera-se para a configuração apresentada na figura \ref{fig:khn2}
+
+\begin{center}
+     \includegraphics[angle=0,width=0.6\textwidth]{khn2.png}
+     \captionof{figure}{Secção KHN com divisor de tensão variável.}
+     \label{fig:khn2}
+     \end{center}
+
+A alteração face ao circuito inicial implica uma nova análise da função de transferência do primeiro amplificador operacional. De forma a facilitar essa análise, utilizaremos o teorema da sobreposição para os dois casos apresentados na figura seguinte.
+
+\begin{center}
+     \includegraphics[angle=0,width=0.7\textwidth]{cdifsobreposicao.png}
+     \captionof{figure}{Teorema da sobreposição aplicado ao circuito amplificador de diferença.}
+     \label{fig:cdifsobreposicao}
+     \end{center}
+
+Utilizando a expressão deduzida nos slides das aulas teóricas para o circuito de diferença podemos escrever:
+
+\begin{equation*} 
+\left\{ \begin{matrix*}[l]
+V_1=\dfrac{R_C}{R_3+R_C}\bigg(1+\dfrac{R_5}{R_2}\bigg)V_i-\dfrac{R_5}{R_2}V_3\quad & , & V_2=0 \\[0.5cm]
+V_1=R_B\bigg(1+\dfrac{R_5}{R_2}\bigg)V_2\quad & , & V_i=V_3=0 \\[0.5cm]
+ \end{matrix*} \right.
+\end{equation*}\\
+
+onde $R_B=\frac{R_3\parallelsum R_y}{P_2+R_3\parallelsum R_y}$, $R_C=P_2\parallelsum R_y$ e $R_A=R_3\parallelsum R_C$. Aplicando o teorema da sobreposição podemos então escrever:
+
+\begin{equation}
+V_1=\dfrac{R_A}{R_3}\bigg(1+\dfrac{R_5}{R_2}\bigg)V_i-\dfrac{R_5}{R_2}V_3+R_B\bigg(1+\dfrac{R_5}{R_2}\bigg)V_2
+\end{equation}
+
+Escrevendo $V_2$ e $V_3$ como funções de $V_1$ como foi feito anteriormente na análise inicial do circuito, é possível resolver em ordem a $\frac{V_1}{V_i}$ e chegar a:
+
+\begin{equation}
+\dfrac{V_1}{V_i}=\dfrac{s^2\frac{R_A(R_2+R_5)}{R_3R_2}}{s^2+s\frac{R_B(R_2+R_5)}{C_1R_2R_6}+\frac{R_5}{C_1C_2R_2R_6R_{11}}}
+\end{equation}
+
+Por comparação com a primeira equação do sistema genérico de \ref{eq:ftDFSKHN}, é possível determinar as novas expressões para as características do filtro, substituindo $R_A$, $R_C$ e $R_B$ pelas resistências presentes no circuito.
+\begin{equation}
+K=\dfrac{R_2+R_5}{R_2}\dfrac{R_A}{R_3}=\dfrac{R_2+R_5}{R_2}\dfrac{R_C}{R_3+R_C}=\dfrac{R_2+R_5}{R_2}\dfrac{P_2(10^4-P_2)}{10^4R_3+P_2(10^4-P_2)}
+\end{equation}
+
+\begin{equation}
+\omega_p=\sqrt{\dfrac{R_5}{C_1C_2R_2R_6R_{11}}}
+\end{equation}
+
+\begin{equation}
+Q=\omega_p\;\dfrac{C_1R_2R_6}{R_2+R_5}\;\dfrac{10^4(P_2+R_3)-P_2^2}{R_3(10^4-P_2)}
+\end{equation}
+
+Tendo obtido estas equações é já possível concluir que, para esta montagem, as equações deduzidas anteriormente (\ref{eq:KHNKteorico}, \ref{eq:KHNwpteorico} e \ref{eq:KHNQteorico}) não são válidas para descrever a relação entre o valor das características dos filtros e o valor da resistência $P_2$ do potenciómetro.\\
+
+Com este novo circuito foram medidas, para diferentes valores de $P_2$, as respostas em frequência do filtro passa-banda para frequências próximas da banda passante e do filtro passa-baixo para a frequência de $500\, \textrm{Hz}$, de forma a poder estimar as características dos filtros pelos métodos utilizados anteriormente (interpolação por \textit{splines} para estimar $\omega_p$ e $Q$ e ganho nas baixas frequências para estimar $K$). Apresentam-se de seguida os resultados obtidos após essa análise.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h]
+\centering
+\label{my-label}
+\begin{tabular}{||c|c|c|c|c|c||}
+\hline
+\multirow{2}{*}{\textbf{Característica}} & \multicolumn{5}{c||}{\textbf{Valor Experimental}}                                                          \\ \cline{2-6} 
+                                         & $P_2=2\, k\Omega$ & $P_2=5\, k\Omega$ & $P_2=7.6\, k\Omega$ & $P_2=8.3\, k\Omega$ & $P_2=9.128\, k\Omega$ \\ \hline\hline
+Constante de ganho $K$                   & $0.3182$          & $0.4773$          & $0.353$             & $0.294$             & $0.172$               \\ \hline
+Frequência natural $\omega_p$ (rad/s)    & $22781$           & $24010$           & $23010$             & $22095$             & $23350$               \\ \hline
+Factor de qualidade $Q$                  & $1.1940$          & $1.9909$          & $3.142$             & $4.51$              & $8.32$                \\ \hline
+\end{tabular}
+\caption{Características do circuito com $P_2$ variável em montagem de divisor de tensão.}
+\end{table}
+
+
+
+
+
+Os resultados obtidos, quando sobrepostos com as curvas teóricas resultantes das equações acabadas de deduzir, apresentam a seguinte característica:
+
+\begin{center}
+     \includegraphics[angle=0,width=0.8\textwidth]{RelacaoKP2KHN.png}
+     \captionof{figure}{Relação entre $K$ e $P_2$.}
+     \label{fig:RelacaoKP2KHN}
+     \end{center}
+
+\begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{RelacaoQP2KHN.png}
+     \captionof{figure}{Relação entre $Q$ e $P_2$.}
+     \label{fig:RelacaoQP2KHN}
+     \end{center}
+
+\begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{RelacaowpP2KHN.png}
+     \captionof{figure}{Relação entre $\omega_p$ e $P_2$.}
+     \label{fig:RelacaowpP2KHN}
+     \end{center}
+
+Podemos de imediato concluir que $\omega_p$ se mantém aproximadamente constante e igual ao valor esperado na análise inicial. De facto, a expressão obtida para o novo circuito com divisor de tensão para $\omega_p$ é igual à obtida anteriormente e verifica-se, de facto, que o sistema real se comporta como esperado com um erro relativo máximo de $12.85\%$.\\
+Quanto a $Q$, os pontos experimentais sugerem que a curva obtida teoricamente descreve razoavelmente bem o comportamento do factor de qualidade quando $P_2$ varia no divisor de tensão. Embora exista um erro relativo que chega a rondar os $35\%$, podemos concluir que a característica dos pontos experimentais comprova um bom ajuste entre a teoria e o sistema real.\\
+Por último, a análise comparativa para a constante de ganho $K$ leva-nos a tirar as mesmas conclusões que para os resultados de $Q$. Sendo os erros relativos melhores (próximos dos $20\%$), os resultados permitem concluir que a curva teórica descreve correctamente o filtro real. 
+
+
+
+\chapter{Secção biquadrática de Tow-Thomas}
+
+
+
+Nesta parte laboratorial pretendemos estudar a secção biquadrática de Tow-Thomas  que se representa pelo seguinte circuito:
+
+  \begin{center}
+     \includegraphics[angle=0,width=0.8\textwidth]{circuito_TT.png}
+     \captionof{figure}{Secção biquadrática de Tow-Thomas.}
+     \label{fig:circuito_TT}
+     \end{center}
+
+
+\section{Funções de transferência e DFS}
+
+
+Podemos dividir o circuito da figura \ref{fig:circuito_TT} em 3 sub-circuitos (ver fig. \ref{fig:circuitoselementaresTT}). O primeiro ($\mathcal{A}$) corresponde a um circuito somador-inversor (se considerarmos a impedância equivalente $Z_{eq}=R_6\parallelsum Z_{C_1}$). O segundo ($\mathcal{B}$) corresponde a um circuito integrador-inversor e o terceiro ($\mathcal{C}$) a um circuito multiplicador-inversor.
+
+\begin{multicols}{3}
+\begin{center}
+\includegraphics[scale=0.5]{circuito_A.png}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.5]{circuito_B.png}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.5]{circuito_C.png}
+\end{center}
+\end{multicols}
+ \captionof{figure}{Representação dos 3 sub-circuitos da seccão biquadrática de Tow-Thomas (sub-circuito $\mathcal{A}$ à esquerda , $\mathcal{B}$ ao meio e $\mathcal{C}$ à direita).}
+ \label{fig:circuitoselementaresTT}
+
+\paragraph{}De outro ponto de vista, podemos ainda reparar que o circuito $\mathcal{A}$ pode ser dividido em duas unidades separadas: um bloco somador e um bloco integrador inversor amortecido (isto é, com uma alimentação adicional resistiva). Podemos associar (respectivamente) a estes blocos a operação somatório, $\Sigma$ e a operação $-\frac{1}{sT}$ com $T=\frac{1}{\omega_p}$. Tem-se que $R_6$ controla o factor de qualidade do filtro de 2ª ordem, $Q$, o que se exprimirá no diagrama de fluxo de sinal pela operação $\frac{1}{Q}$. Podemos adicionar ao diagrama o ramo de multiplicação de $V_i$ por $K$, sendo $K$ o ganho em DC.
+
+Relativamente ao sub-circuito $\mathcal{B}$, que corresponde a um integrador-inversor, a operação associada a este bloco é $-\frac{1}{sT}$. 
+
+O sub-circuito $\mathcal{C}$ é um multiplicador-inversor com resistências $R_5$ e $R_2$ de igual valor. Logo este bloco é meramente inversor ( operação $-1$).
+
+A secção biquadrática de Tow-Thomas apresenta assim o seguinte diagrama de fluxo de sinal:
+
+ \begin{center}
+     \includegraphics[angle=0,width=0.8\textwidth]{DFS.png}
+     \captionof{figure}{Diagrama de fluxo de sinal da secção biquadrática de Tow-Thomas (em que $T=\frac{1}{\omega_p}$)}
+     \label{fig:DFS.png}
+     \end{center}
+
+A partir da análise das operações representadas no DFS é possível obter as relações entre as tensões em amplitudes complexas $\bar{V}_i$, $\bar{V}_1$, $\bar{V}_2$ e $\bar{V}_3$:
+
+
+\begin{numcases}
+\phantom\bar{V}_1=-\frac{\omega_p}{s}\left(K\bar{V}_i+\frac{1}{Q}\bar{V}_1 +\bar{V}_3\right)\label{eq:TT1}\\
+\bar{V}_2=-\frac{\omega_p}{s}\bar{V}_1 \label{eq:TT2}\\
+\bar{V}_3=-\bar{V}_2\label{eq:TT3}
+\end{numcases}
+
+Substituindo \ref{eq:TT2} em \ref{eq:TT3} e a expressão resultante desta operação em \ref{eq:TT1} vem que:
+\begin{numcases}
+\phantom\bar{V}_1=-\frac{\omega_p}{s}\left(K\bar{V}_i+\frac{1}{Q}\bar{V}_1 +\frac{\omega_p}{s}\bar{V}_1\right)\label{eq:TT4}\\
+\bar{V}_2=-\frac{\omega_p}{s}\bar{V}_1 \label{eq:TT5}\\
+\bar{V}_3=\frac{\omega_p}{s}\bar{V}_1 \label{eq:TT6}
+\end{numcases}
+
+Desenvolvendo agora apenas \ref{eq:TT4} em ordem a $T_1=\dfrac{\bar{V_1}}{\bar{V}_i}$ tem-se:
+
+$$T_1\left(1+\frac{\omega_p}{Qs}+\frac{\omega_p^2}{s^2}\right)=-\frac{K\omega_p}{s}\Leftrightarrow T_1=-\frac{K\omega_p}{s}\frac{Qs^2}{Qs^2+\omega_ps+\omega_p^2Q}\Leftrightarrow$$
+
+\begin{equation}
+\Leftrightarrow T_1=-\dfrac{K\omega_ps}{s^2+\frac{\omega_p}{Q}s+\omega_p^2}\label{eq:TT7}
+\end{equation}
+
+
+Podemos constatar assim, que a função de transferência $T_1$ corresponde à função de transferência de um filtro passa-banda.\\
+
+Por \ref{eq:TT5} e \ref{eq:TT6} obtém-se respectivamente:
+
+\begin{equation}
+T_2=\dfrac{K\omega_p^2}{s^2+\frac{\omega_p}{Q}s+\omega_p^2}\label{eq:TT8}
+\end{equation}
+
+\begin{equation}
+T_3=-\dfrac{K\omega_p^2}{s^2+\frac{\omega_p}{Q}s+\omega_p^2}\label{eq:TT9}
+\end{equation}
+
+
+Portanto, $T_2$ e $T_3$ são funções de transferência respectivas a filtros passa-baixo, sendo que estas são simétricas uma da outra.
+
+É importante referir que $T_1$, $T_2$ e $T_3$ apresentam o mesmo denominador, diferindo apenas no numerador. 
+
+\section{Análise do circuito}
+
+Para determinarmos as constantes $K$, $\omega_p$ e $Q$ podemos começar por analisar o circuito da figura \ref{fig:circuito_TT} e obter as expressões para $T_1$, $T_2$ e $T_3$, agora como funções das resistências e capacidades do circuito. Comparando as novas funções de transferência com as anteriormente obtidas na secção anterior, será então possível extrair as constantes desejadas.\\
+As expressões para as relações entre as tensões de saída e de entrada características de cada sub-circuito da figura \ref{fig:circuitoselementaresTT} são:
+
+
+\begin{numcases}
+\phantom\bar{V}_1=-\frac{R_6}{sR_6C_1+1}\left(\frac{\bar{V}_i}{P_2}+\frac{\bar{V}_3}{R_4}\right)\label{eq:TT10}\\
+\bar{V}_2=-\frac{1}{sR_{11}C_2}\bar{V}_1 \label{eq:TT11}\\
+\bar{V}_3=-\frac{R_5}{R_2}\bar{V}_2 \label{eq:TT12}
+\end{numcases}
+
+
+em que se considerou a impedância equivalente $Z_{eq}=C1\parallelsum R_6=\frac{R_6}{sR_6C_1+1}$.
+\\
+
+Para a determinação das funções de transferência basta resolvermos o sistema de equações \ref{eq:TT10}, \ref{eq:TT11} e \ref{eq:TT12} em ordem a $T_1=\dfrac{\bar{V}_1}{\bar{V}_i}$, $T_2=\dfrac{\bar{V}_2}{\bar{V}_i}$ e $T_3=\dfrac{\bar{V}_3}{\bar{V}_i}$.\\
+
+Ora, substituindo \ref{eq:TT11} em \ref{eq:TT12} e a expressão resultante desta operação em \ref{eq:TT10} vem que:
+
+\begin{numcases}
+\phantom\bar{V}_1=-\frac{R_6}{sR_6C_1+1}\left(\frac{\bar{V}_i}{P_2}+\frac{R_5}{sR_2R_{4}R_{11}C_2}\bar{V}_1\right)\label{eq:TT13}\\
+\bar{V}_2=-\frac{1}{sR_{11}C_2}\bar{V}_1\label{eq:TT14} \\
+\bar{V}_3=\frac{R_5}{sR_2R_{11}C_2}\bar{V}_1 \label{eq:TT15}
+\end{numcases}
+
+
+Desenvolvendo agora apenas \ref{eq:TT13}:
+
+
+$$\bar{V}_1\left(\frac{sR_6C_1+1}{R_6}+\frac{R_5}{sR_2R_4R_{11}C_2}\right)=-\frac{\bar{V}_i}{P_2}\Leftrightarrow \bar{V}_1\left(\frac{s^2R_2R_4R_6R_{11}C_1C_2+sR_2R_4R_{11}C_2+R_5R_6}{sR_2R_4R_6R_{11}C_2}\right)=-\frac{\bar{V}_i}{P_2}$$\\
+
+Isolando $\frac{\bar{V}_1}{\bar{V}_i}$ vem que:
+
+$$T_1=-\frac{sR_2R_4R_6R_{11}C_2}{s^2R_2R_4R_6R_{11}P_2C_1C_2+sR_2R_4R_{11}P_2C_2+R_5R_6P_2}$$\\
+
+Normalizando o coeficiente multiplicativo de $s^2$ no denominador:
+
+\begin{equation}\label{eq:TT16}
+\boxed{T_1=-\dfrac{\frac{1}{P_2C_1}s}{s^2+\frac{1}{R_6C_1}s+\frac{R_5}{R_2R_4R_{11}C_1C_2}}=-\dfrac{21.277\times 10^3s}{s^2+21.277\times 10^3s+4.527\times 10^8}}
+\end{equation}
+
+Recorrendo a \ref{eq:TT14} e \ref{eq:TT15}:
+
+\begin{equation*}
+\boxed{T_2=\dfrac{\frac{1}{P_2R_{11}C_1C_2}}{s^2+\frac{1}{R_6C_1}s+\frac{R_5}{R_2R_4R_{11}C_1C_2}}=\dfrac{4.527\times 10^8}{s^2+21.277\times 10^3s+4.527\times 10^8}}
+\end{equation*}
+
+\begin{equation*}
+\boxed{T_3=-\dfrac{\frac{R_5}{P_2R_2R_{11}C_1C_2}}{s^2+\frac{1}{R_6C_1}s+\frac{R_5}{R_2R_4R_{11}C_1C_2}}=-\dfrac{4.527\times 10^8}{s^2+21.277\times 10^3s+4.527\times 10^8}}
+\end{equation*}
+
+
+Com $T_1$ determinada, e estando a expressão obtida em função das resistências e capacidades do circuito, será então possível obter as constantes $K$, $\omega_p$ e $Q$ pela comparação desta nova função de transferência com a de \ref{eq:TT7}, de onde resulta:
+\begin{equation*} 
+\left\{ \begin{matrix*}[l]
+\dfrac{\omega_p}{Q}=\dfrac{1}{C_1R_6}\\[0.5cm]
+\omega_p^2=\dfrac{R_5}{R_2R_4R_{11}C_1C_2}\\[0.5cm]
+K\omega_p=\dfrac{1}{P_2C_1}
+ \end{matrix*} \right.
+\end{equation*}
+
+
+Ou seja,
+\begin{numcases}
+\phantom\omega_p=\sqrt{\frac{R_5}{R_2R_4R_{11}C_1C_2}}=2.1277\times 10^4 \quad\textrm{(rad/s)} \label{eq:TT17}\\
+Q=R_6\sqrt{\frac{R_5C_1}{R_2R_4R_{11}C_2}}=1\label{eq:TT18}\\
+K=\frac{1}{P_2}\sqrt{\frac{R_2R_4R_{11}C_2}{R_5C_1}}=1 \label{eq:TT19}
+\end{numcases}
+
+
+\section{Resultados obtidos e diagramas de Bode}
+
+\hspace{15pt} Tendo em conta as funções de transferência calculadas anteriormente e utilizando os valores nominais dados no enunciado, pode proceder-se à elaboração dos diagramas de Bode correspondentes às respostas em frequência de cada uma delas.\\
+
+Sendo o denominador comum às três funções de transferência, estas vão ter os mesmos pólos, que se calculam de seguida:
+$$s^2+21.277\times10^3 s+4.527\times10^8=0\Leftrightarrow s=\frac{-21.277\times 10^3\pm \sqrt{\left(21.277\times 10^3\right)^2-4\times 1\times 4.527\times 10^8}}{2\times 1}$$
+
+Existem assim dois pólos:
+
+$$
+\begin{cases}
+s_1=-10.639\times 10^3+j18.426\times 10^3\\
+s_2=-10.639\times 10^3-j18.426\times 10^3
+\end{cases}
+$$
+
+Cujo módulo é: $\left|s_1\right|=21.277\times 10^3 \quad \textrm{rad/s}$
+
+Seguem-se então os diagramas de Bode de amplitude obtidos através das equações descritas anteriormente, sobrepostos pelos pontos experimentais obtidos em laboratório:
+
+\begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{TTT1exp.png}
+     \captionof{figure}{Diagrama de Bode de $T_1$ com pontos experimentais.}
+     \label{fig:TTT1exp}
+     \end{center}
+
+\begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{TTT2exp.png}
+     \captionof{figure}{Diagrama de Bode de $T_2$ com pontos experimentais.}
+     \label{fig:TTT2exp}
+     \end{center}
+     
+ \begin{center}
+     \includegraphics[angle=0,width=0.9\textwidth]{TTT3exp.png}
+     \captionof{figure}{Diagrama de Bode de $T_3$ com pontos experimentais.}
+     \label{fig:TTT3exp}
+     \end{center}
+
+
+Podemos observar que os diagramas de Bode de magnitude correspondentes às funções de transferência $T_2$ e $T_3$ são iguais em módulo e simétricas, pelo que a única diferença na resposta das duas saídas seria uma oposição de fase de $180\degree$.\\
+Verifica-se o comportamento de filtro passa-banda no diagrama correspondente à função $T_1$, bem ajustado pelos pontos experimentais e de filtro passa-baixo nos diagramas correspondentes às funções $T_2$ e $T_3$. Nota-se que os dois últimos pontos experimentais no diagrama de $T_3$ apresentam um erro maior que os correspondentes no diagrama de $T_2$ e, dado que se deveria ter obtido, supostamente, $2$ pares de pontos iguais, conclui-se que esse desvio se deve a uma possível má ligação dos componentes e a um mau contacto que tenha introduzido mais ruído na saída, tendo o erro sido potenciado pelo facto de se estar a trabalhar numa zona da resposta com grande atenuação de sinal.\\
+Também se pode observar o efeito do factor derivativo no primeiro diagrama, devido à presença de um zero na origem na função de transferência $T_1$. 
+
+\section{Influência do Potenciómetro nas Características do Filtro}
+
+Recorrendo às equações \ref{eq:TT17}, \ref{eq:TT18} e \ref{eq:TT19} podemos comparar os resultados teóricos com os obtidos experimentalmente para as características dos filtros: $K$, $\omega_p$ e $Q$.
+
+\begin{table}[h]
+\centering
+\label{tab:TTP2variavel}
+\begin{tabular}{||c|c|cccc||}
+\hline
+\multirow{2}{*}{\textbf{Característica}} & \textbf{Valor}   & \multicolumn{4}{c||}{\textbf{Valor Experimental}}                                 \\ \cline{3-6} 
+                          & \textbf{teórico} & $P_2=10\, k\Omega$ & $P_2=5\, k\Omega$ & $P_2=1\, k\Omega$ & $P_2=0.5\, k\Omega$ \\ \hline \hline 
+Constante de ganho $K$ em $T_2$          & $1$              & $0.9341$           & $1.9556$          & $10.2326$         & $20.4878$           \\ \hline
+Constante de ganho $K$ em $T_3$          & $1$              & $0.9556$           & $2.1333$          & $10.2326$         & $20$                \\ \hline
+Frequência natural $\omega_p$ (rad/s)    & $21277$          & $22700$            & $22840$           & $22370$           & $21300$             \\ \hline
+Factor de qualidade $Q$                  & $1$              & $1.1860$           & $1.1810$          & $1.1975$          & $1.2007$            \\ \hline
+\end{tabular}
+\caption {Previsão teórica e observação experimental das características dos filtros activos considerados.}
+\end{table}
+
+Tal como para a secção biquadrática KHN, as constantes de ganho $K$ foram estimadas a partir do valor das funções de transferência que representam filtros passa-baixo, $T_2$ e $T_3$, na frequência mais baixa utilizada em laboratório ($500$ Hz).\\
+Por sua vez, os valores de $Q$ e de $\omega_p$ foram também estimados da mesma forma que para a secção KHN, ou seja, realizando uma interpolação por \textit{splines} aos pontos experimentais da resposta de $T_1$ de forma a obter uma curva contínua que aproximasse a resposta real obtida em laboratório na gama de frequências utilizada. Tal como anteriormente, os valores de $\omega_p$ e $Q$ são então obtidos com base na figura \ref{fig:passabanda} retirada dos slides das aulas teóricas.\\
+
+Tendo então estimado os valores das características da resposta em frequência de cada filtro variando o valor do potenciómetro $P_2$, procedeu-se à comparação desses resultados com as previsões teóricas descritas pelas equações \ref{eq:TT17}, \ref{eq:TT18} e \ref{eq:TT19} de onde resultam os seguintes gráficos.
+
+\begin{center}
+     \includegraphics[angle=0,width=1\textwidth]{RelacaoK2P2TT.png}
+     \captionof{figure}{Comparação experiência/teoria da relação entre $K$ medido em $T_2$ e o valor de $P_2$.}
+     \label{fig:RelacaoK2P2TT}
+     \end{center}
+
+\begin{center}
+     \includegraphics[angle=0,width=1\textwidth]{RelacaoK3P2TT.png}
+     \captionof{figure}{Comparação experiência/teoria da relação entre $K$ medido em $T_3$ e o valor de $P_2$.}
+     \label{fig:RelacaoK3P2TT}
+     \end{center}
+     
+     Destes dois gráficos podemos tirar a conclusão de que os valores obtidos se ajustam muito satisfatoriamente à curva esperada. Isto não é surpreendente dado que longe das atenuações elevadas os resultados têm sido fiáveis até agora.
+
+\begin{center}
+     \includegraphics[angle=0,width=1\textwidth]{RelacaowpP2TT.png}
+     \captionof{figure}{Comparação experiência/teoria da relação entre $\omega_p$ medido em $T_1$ e o valor de $P_2$.}
+     \label{fig:RelacaowpP2TT}
+     \end{center}
+
+Relativamente a $\omega_p$, já não é possível confirmar uma óptima concordância entre resultados experimentais e previsão teórica. Contudo, das quatro medições, a que apresenta maior erro relativo é a correspondente a $P_2=5\, k\Omega$ e mesmo nesse caso o erro relativo é de apenas $7.35\%$.
+
+\begin{center}
+     \includegraphics[angle=0,width=1\textwidth]{RelacaoQP2TT.png}
+     \captionof{figure}{Comparação experiência/teoria da relação entre $K$ medido em $T_1$ e o valor de $P_2$.}
+     \label{fig:RelacaoQP2TT}
+     \end{center}
+
+A estimação de $Q$ a partir dos dados experimentais revela erros relativos entre $18\%$ e $20\%$, o que já não pode ser considerado aceitável. Contudo, tomando em consideração a forma como foram obtidos os valores de $Q$ apresentados, não é difícil encontrar factores que possam ter promovido esta falta de exactidão. Em primeiro lugar, não foram feitas medidas suficientes na região de frequências passante, o que implica uma interpolação posterior mais fraca e menos concordante com o sistema real observado. De facto, em frequência próximas da dos pólos do sistema as razões de amplitude entrada-saída variam rapidamente e, dessa forma, uma má estimação em torno do pico de ganho máximo é facilmente obtida. Este factor induz também, obviamente, erro na estimação de $\omega_p$. Em segundo lugar e em consequência do primeiro factor, uma interpolação por \textit{splines} não consegue compensar a falta de pontos para interpolar e \emph{desenhar} o pico esperado, ao passo que uma interpolação com uma função racional poderia, com um número de pontos mais elevado, ter estimado um pico de ganho máximo com um aspecto mais próximo do teórico.\\
+Por outro lado, a estimação de $Q$ revela ser bastante precisa, embora que inexacta. De facto, os resultados de $Q$ apresentam uma variância de $3.67\%$. Ora, se a falta de exactidão pode, por um lado, ser explicada pelo método utilizado na interpolação, a elevada precisão revela, por outro, que talvez haja outro factor, comum a todas as medições, a induzir erro na medição. Ou seja, a precisão obtida indica que talvez o factor de qualidade do sistema real observado não seja, já por si, igual ao teórico.
+
+\chapter{Conclusões}
+
+\paragraph{}
+Nesta atividade laboratorial foi possível aos alunos familiarizarem-se com diagramas de fluxo de sinal e relacioná-los com circuitos elétricos específicos.
+
+\paragraph{}
+Estes circuitos montados são filtros de frequência (passa-banda, passa-alto e passa-baixo) com características próprias, cujo significado físico fica mais claro após o estudo do seu comportamento em laboratório.
+
+\paragraph{}
+Os resultados experimentais revelaram nas duas experiências não serem totalmente concordantes com os teóricos revelando os obstáculos de passar a teoria à prática. Mesmo com tentativas de ajuste não é fácil obter os valores finais com erros mais pequenos que $5\%$, por exemplo. Contudo, esse facto motiva a procura de soluções que permitem contornar as origens destes erros e aprimorar as medições feitas. Para os filtros estudados, conclui-se que a verificação experimental da resposta em frequência teria tido resultados muito mais positivos com um maior número de medições em frequência e com uma distribuição desses pontos correspondente à variação dos sinais de saída dos filtros. Desta forma, as interpolações obtidas teriam erros muito menores e provavelmente resultariam em confirmações mais seguras da teoria.
+
+
+\chapter{Oscilador de Onda Rectangular}
+
+
+\section{Análise Teórica}
+
+\subsection{Forma de onda dos sinais $v_C(t)$ e $v_M(t)$. Obtenção da frequência de oscilação, $f$ e \textit{duty cycle}}
+Consideremos o conjunto do circuto oscilador e circuito de polarização do díodo, assim como o diagrama de blocos associado:
+
+
+\begin{center}
+    \includegraphics[angle=0,width=0.6\textwidth]{O.png}
+    \captionof{figure}{Conjunto circuito oscilador e circuito de polarização de díodo.}
+    \label{fig:O}
+    
+    \end{center}
+    
+    \begin{center}
+    \includegraphics[angle=0,width=0.7\textwidth]{N.png}
+    \captionof{figure}{Diagrama de blocos do oscilador (tendo em conta a \textit{Data Sheet} do $NE555$)- não tendo em conta $C_2$.}
+    \label{fig:O}
+    
+    \end{center}
+
+
+O sistema de comparadores integrados no oscilador funciona do seguinte modo:
+
+\begin{center}
+$
+\begin{cases}
+\text{Trigger}<V_{TL}=\frac{1}{3}V_{cc}\Rightarrow S=H\\
+\text{Threshold}>V_{TH}=\frac{2}{3}V_{cc}\Rightarrow R=H
+\end{cases}
+$
+\end{center}
+
+
+Inicialmente $C_1$ encontra-se descarregado ($v_C=0$).
+
+Logo,
+
+\begin{center}
+$
+\begin{cases}
+v_1=0<V_{TH}\Rightarrow R=L\\
+v_2=0<V_{TL}\Rightarrow S=H
+\end{cases}
+$
+\end{center}
+
+Sendo assim, o Flip-Flop está no estado \textit{set} ($Q=H,\bar{Q}=L$). Tem-se que $V(H)=V_{cc}$ e $V(L)=0$, portanto, com $\bar{Q}=L$, o transístor $T_1$ do oscilador está ao corte. A tensão de saída do oscilador, $v_M$ corresponde à tensão de saída do Flip-Flop, ou seja $v_M=V(Q)=V_{cc}$.
+
+O condensador começa a carregar-se através de $R_1+R_2$, pois $v_A>v_{C_1}\Rightarrow$ corrente a deslocar-se do nó $A$ para $C_1$.
+
+Portanto teremos como tensão aos terminais do condensador, $v_{C}$, e na saída do oscilador, $v_M$:
+
+\begin{equation}
+v_C(t)=V_{cc}-V_{cc}e^{-\frac{t}{\left(R_1+R_2\right)C}}
+\end{equation}
+
+\begin{equation}
+ v_M=V_{cc}
+\end{equation}
+
+É importante mencionar que com o carregamento de $C_1$, $v_C>V_{TL}$, $v_{C_1}<V_{TH}\Rightarrow R=S=L\Rightarrow FF$ em \textit{HOLD}$\Rightarrow$ transístor $T_1$ continua ao corte.\\
+
+
+Quando $v_C$ atinge $V_{TH}=\frac{2}{3}V_{cc}$, tem-se uma mudança de estado para $Reset$ ($Q=L,\bar{Q}=H$).
+
+Para este caso, $v_B=V_{cc}$ e $v_A<V_{cc}$ devido à queda de tensão em $R_1$ (supondo $C_1$ ainda na fase de carregamento). Portanto, $v_{BC}>0$, $v_{BE}>0\Rightarrow T_1$ em saturação.
+
+O condensador começa a descarregar-se através de $R_2$ e ocorre uma nova mudança de estado quando $v_C$ atinge $V_{TL}$, num instante designado por $T_L$.
+
+Para este caso, tem-se que:
+
+\begin{equation}
+v_{C}(t)=V_{TH}e^{-\frac{t}{R_2C_1}}
+\end{equation}
+
+
+\begin{equation}
+v_M=0 V
+\end{equation}
+
+Determinemos $T_L$:
+
+$$v_C(T_L)=V_{TL}\Leftrightarrow V_{TH}e^{-\frac{T_L}{R_2C_1}}=V_{TL}\Leftrightarrow \frac{T_L}{R_2C_1}=\log{\left(\frac{V_{TH}}{V_{TL}}\right)}$$
+
+Ou seja,
+
+\begin{equation}
+T_L=R_2C_1\log(2)
+\end{equation}
+
+Quando $v_C$ atinge $V_{TL}$, vem que:
+
+\begin{center}
+$
+\begin{cases}
+\text{Trigger}<V_{TL}=\frac{1}{3}V_{cc}\Rightarrow S=H\\
+\text{Threshold}>V_{TH}=\frac{2}{3}V_{cc}\Rightarrow R=H
+\end{cases}
+$
+\end{center}
+
+Logo, o Flip-Flop volta ao estado \textit{set} ($Q=H,\bar{Q}=L$). $T_1$ fica ao corte e o condensador $C_1$ começa a carregar-se através de $R_1+R_2$. Ocorre uma nova mudança de estado quando $v_c$ atinge $V_{TH}$, num instante designado por $T_H$.
+
+Portanto, para este caso obtêm-se as seguintes expressões para $v_C$ e $v_M$:
+
+\begin{equation}
+v_C(t)=V_{cc}+(V_{TL}-V_{cc})e^{-\frac{t}{{(R_1+R_2)}C}}
+\end{equation}
+\begin{equation}
+v_M=V_{cc}
+\end{equation}
+
+Determinemos $T_H$:
+
+
+$$v_C(T_H)=V_{TH}\Leftrightarrow e^{-\frac{T_H}{(R_1+R_2)C_1}}=\frac{V_{TH}-V_{cc}}{V_{TL}-V_{cc}}\Leftrightarrow T_H=(R_1+R_2)C_1\log{\left(\frac{V_{TL}-V_{cc}}{V_{TH}-V_{cc}}\right)}$$
+
+Ou seja,
+
+\begin{equation}
+T_H=(R_1+R_2)C_1\log(2)
+\end{equation}
+
+A partir de toda esta análise do funcionamento do transístor é possível obter os gráficos da tensão aos terminais do condensador $C_1$, $v_C(t)$ e a tensão de saída do oscilador, $v_M(t)$:
+
+    \begin{center}
+    \includegraphics[angle=0,width=0.5\textwidth]{X.png}
+    \captionof{figure}{Forma de onda dos gráficos tensão aos terminais do condensador $v_C(t)$ e tensão de saída do oscilador, $v_M(t)$.}
+    \label{fig:X}
+    
+    \end{center}
+
+
+O período de oscilação, $T$, do circuito pode ser determinado da seguinte forma:
+\begin{equation}
+T=T_A+T_B=(R_1 + 2R_2)C_1ln(2)\approx 1.076\,\textrm{ms}
+\end{equation}
+
+Logo, a frequência de oscilação, $f$, será:
+
+\begin{equation}
+f=\frac{1}{T}=929.8\,\textrm{Hz}
+\end{equation}
+
+Sendo o \textit{duty cycle}:
+
+\begin{equation}
+d.c.=\frac{T_H}{T_L+T_H}=\frac{R_1+R_2}{R_1+2R_2}=\frac{820+3,9\times10^3}{820+2\cdot3,9\times10^3}=0.5476
+\end{equation}\\
+
+
+Numericamente, os tempos $T_H$ e $T_L$ valem:
+
+\begin{equation*}
+\left\{\begin{matrix*}[l]
+	T_L=0.4866\hspace{3pt}s\\
+	T_H=0.5889\hspace{3pt}s
+\end{matrix*}\right.
+\end{equation*}\\
+
+\subsection{Estimativa do valor máximo de corrente no díodo, $i_D$}
+De seguida pretendeu-se estimar o valor máximo da corrente no dído, $i_D$. Ora, o valor máximo da corrente no díodo ocorre quando $V_M$ é mínimo, ou seja,  $V_M=0.3\hspace{3pt} V$, valor retirado da $Data$ $Sheet$ do Timer NE555. Segundo a $Data$ $Sheet$ respectiva ao díodo emissor $SIR333$, a tensão mínima aos seus terminais é $1.4V$.
+Calcula-se então o valor da corrente máxima no díodo, fazendo uma análise do circuito e tendo em conta a lei de Ohm:
+
+\begin{equation}
+I_{max}=\frac{V_{CC}-V_{D}-V_M}{R_3}\Rightarrow I_{max}=\frac{12-1.4-0.3}{150}=68.7 \,\textrm{mA} \label{eq:4.12}
+\end{equation}
+
+Facilmente se verifica que não se pode reduzir significativamente o valor de $R_3$, pois a corrente no díodo iria aumentar significativamente. Calcula-se então o valor mínimo de $R_3$ para o qual o díodo funciona correctamente, tendo em conta a $Data$ $Sheet$ do LED SIR333, que indica uma corrente máxima $I_{max}=100\hspace{3pt}$ mA:
+
+\begin{equation}
+R_{3min}=\frac{12-1.4-0.3}{0.1}=103\hspace{3pt}\Omega
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Análise experimental}
+
+\subsection{Esboço das forma de onda na saída do Oscilador, $v_M(t)$. Obtenção de frequência de oscilação, $f$  e \textit{duty cycle}}
+Pretendeu-se inicialmente analisar a tensão de saída do circuito integrado $NE555$. Obtivémos um gráfico de tensão em função do tempo, $v_M(t)$, que se encontra representado na seguinte figura:
+
+\begin{center}
+    \includegraphics[angle=0,width=0.7\textwidth]{VM.png}
+    \captionof{figure}{Gráfico da tensão de saída, $v_M$, em função do tempo, obtido pelo osciloscópio digital.}
+    \label{fig:VM}
+    \end{center}
+    
+\paragraph{}Procedemos à extracção do tempo $T_H$ para o qual o oscilador se encontra activo, isto é, em que $v_M$ corresponde a $``High"$. Analogamente obtivémos o tempo $T_L$ em que o oscilador se encontra em $``Low"$. Como o período $T$ corresponde à soma dos tempos anteriores concluímos, então, pela análise do gráfico anterior, que:
+
+$$T_H=62\,\textrm{ms}, \hspace{15pt} T_L=52\,\textrm{ms},\hspace{15pt}T=114\,\textrm{ms}$$
+
+Com estes valores foi possível obter a frequência de oscilação, $f=\frac{1}{T}$ e \textit{duty cycle}, $d.c=\frac{T_H}{T}$. Ou seja,
+
+$$f=877.19\,\textrm{Hz},\hspace{15pt} d.c=54.39\%$$
+
+Comparando com os valores teóricos de frequência, $f_{teo}=929.81\,\textrm{Hz}$ e \textit{duty cycle}, $d.c._{teo}=54.76\%$, podemos verificar um erro relativo dos valores experimentais face aos teóricos:
+
+$$e_{f}=5.66\%, \hspace{15pt} e_{d.c}=0.68\%$$
+
+Averiguamos assim que o erro da medição é significativo mas não preocupante, sendo que $e_{d.c}$ é praticamente inexistente.\\
+
+\subsection{Esboço das forma de onda da tensão aos terminais do condensador $C_1$, $v_C(t)$. Obtenção de frequência de oscilação, $f$}
+
+Pretende-se de seguida obter o gráfico da tensão aos terminais do condensador $C_1$ em função do tempo, isto é, $v_C(t)$, tal como podemos visualizar na seguinte figura:
+
+\begin{center}
+    \includegraphics[angle=0,width=0.7\textwidth]{VC.png}
+    \captionof{figure}{Gráfico da tensão aos terminais do condensador $C_1$, $v_C$, em função do tempo, obtido pelo osciloscópio digital.}
+    \label{fig:VC}
+    \end{center}
+
+Extraímos o período $T$ de oscilação deste sinal, e determinámos a frequência $f$ associada, tendo-se obtido:
+
+$$T=114\,\textrm{ms},\hspace{15pt}f=877.19\,\textrm{Hz}$$
+
+Portanto, podemos constatar que obtivémos o mesmo valor de frequência que para o caso do sinal de saída $v_M$ do oscilador, tal como seria de esperar. Sendo assim, o desvio do valor experimental face ao teórico para a frequência será o mesmo que o anterior, ou seja:
+
+$$e_{f}=5.66\%$$
+
+\subsection{Estimativa do valor máximo de corrente no díodo, $i_D$, tendo em conta o valor experimental de $v_M$}
+
+\paragraph{}Por fim, pretende-se estimar a corrente máxima no díodo emissor tendo em conta o valor experimental da tensão de saída do oscilador, $v_M$. Tal como vimos em \ref{eq:4.12}, podemos reparar que a maximização de $I_D$ implica a minimização de $v_M$. Pela análise do gráfico da figura  \ref{fig:VM} foi possível extrair o valor mínimo de $v_M$ sendo este:
+$$v_{M_{min}}=0.290V$$
+
+\paragraph{}Segundo a $Data$ $Sheet$ respectiva ao díodo emissor $SIR333$, a tensão mínima aos seus terminais é $1.4V$. Portanto, por \ref{eq:4.12} obtivémos que:
+
+$$I_{{D}_{máx}}=68.73 \,\textrm{mA}$$
+
+Como o valor máximo teórico para $I_D$ é $I_{{D}_{máx,teo}}=68.7\,\textrm{mA}$ (sendo este arredondado) podemos concluir que o desvio $e_{I_{{D}_{máx}}}$ é praticamente inexistente.
+
+
+
+
+\chapter{Secção Biquadrática de Rauch}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%editei
+\section{Análise Teórica}
+
+\subsection{Determinação da função de transferência, $T$, do filtro de Butterwoth com as características requeridas}
+
+\indent{} Pretende-se determinar a função de transferência de um filtro passa-banda de Butterworth de 2ª ordem, com frequência central $f_o=1$ $kHz$, largura de banda de $250$ $Hz$ e com ganho de $24$ $dB$ na frequência central. Para obtermos um filtro passa-banda de 2ª ordem, quando desnormalizado, é necessário considerar em 1º lugar um filtro normalizado de 1ª ordem :
+
+$$
+T(S)=\frac{1}{S+1}
+$$
+para $S=\varepsilon^{1/N}\left(\frac{s^2+\omega_o^2}{Bs}\right)$, com $\varepsilon = 1$ (assumindo $A_p=3dB$) e $N=2$ (2ª ordem), temos:
+
+$$
+T(s)=\frac{1}{\left(\frac{s^2+\omega_o^2}{Bs}\right)+1}
+$$
+Multiplicando o numerador e o denominador pelo factor $Bs$ obtém-se:
+
+$$
+T(s)=\frac{Bs}{s^2+Bs+w_o^2}
+$$
+
+Para se ter um ganho de $24$ dB na frequência central, substitui-se de seguida $s$ por $j\omega_o$, e acrescenta-se um ganho $K$ que será o valor a multiplicar pela expressão anterior.
+
+$$
+\left|K\cdot T(j\omega_o)\right|=24\hspace{3pt}dB
+$$
+
+$$
+\Rightarrow\left|\frac{jKBw_o}{-w_o^2+jBw_o+w_o^2}\right|=24\hspace{3pt}dB
+$$
+
+$$
+\Rightarrow \left|K\right|=10^{\frac{24}{20}}=15.85
+$$
+
+Chegamos assim à expressão da função de transferência pretendida, em que K pode ser positivo ou negativo:
+
+\begin{equation}\label{eq:rauch}
+T(s)=\pm \frac{15.85Bs}{s^2+Bs+w_o^2}
+\end{equation}
+
+
+\section{Análise Experimental}
+
+\subsection{Obtenção da frequência central, $f_o$, ganho à frequência central, $\left|T_{máx}\right|$, largura de banda, $B$, e ordem do filtro, $n$}
+
+\paragraph{}No trabalho experimental, de forma a não provocarmos a saturação do $AMPOP$, escolheu-se um sinal de entrada, $v_i$, que apresentasse uma componente sinusoidal com amplitude reduzida ($Vi=370mV$) e componente contínua (offset) suficientemente grande que não permitisse a negatividade do sinal ($V_{offset}=2.243V$).
+
+Procedemos à determinação da frequência central $w_o$ a partir da análise de fase do filtro de Rauch. 
+
+Ora, substituindo $w_o$ em \ref{eq:rauch} tem-se que:
+
+$$T(w_o)=K$$
+
+
+Portanto, para $w=w_o$ a desfasagem entre $v_i$ e $v_o$ será $0$ caso $K>0$, ou $\pi$ caso $K<0$ (apenas sabemos que $|K|=15.85$).
+
+De forma a encontrarmos a frequência $w_o$ procedemos à obtenção de gráficos de $v_i$ e $v_o$ em simultâneo, tal que a visualização da sua desfasagem fosse possível. Efectuámos um varrimento de frequências e obtivémos uma desfasagem de $\Delta\phi=\pi$ entre os gráficos de $v_i$ e $v_o$ em $f_o=907.5Hz$, tal como podemos ver na seguinte figura:
+
+\begin{center}
+    \includegraphics[angle=0,width=0.8\textwidth]{F0.png}
+    \captionof{figure}{Gráfico de $v_i(t)$ e $v_o(t)$ em que ocorre desfasagem $\Delta\phi=\pi$ para a frequência $f=907.5Hz$.}
+    \label{fig:F0}
+    \end{center}
+
+Como $w=2\pi f$ e o ganho na frequência central é dado por $|T(w_o)|=\frac{V_o}{V_i}$ (em que $V_i$ e $V_o$ são as amplitudes sinusoidais de $v_i$ e $v_o$) podemos imediatamente evidenciar:
+
+$$w_o=5701.99 \text{ rad/s}, \hspace{15pt} |T(w_o)|=14.77, \hspace{15pt} |T(w_o)|_{dB}=23.39 $$
+
+Podemos assim concluir que $\Delta \phi=\pi$ corresponde à desfasagem entre $v_i$ e $v_o$ para a qual se tem $w=w_o$. Sendo assim, assumimos que $K<0$, $K=-15.85$.
+
+Comparando os valores experimentais com os valores teóricos $f_{teo}=1kHz$ e $|T(w_o)|_{dB,teo}=24$, é possível calcular os erros relativos respectivos:
+
+
+$$e_{f_o}=9.25\%, \hspace{15pt} e_{|T(w_o)|_{dB}}=2.61\%$$
+
+Apenas o desvio $e_{f_o}=9.25\%$ é significativo, sendo que pode ser explicado pela não idealidade dos componentes do circuito.
+
+Extraímos pontos $(w,|T|_{dB})$ a partir do varrimento de frequências, sendo possível a construção de um gráfico $|T|_{dB}$ em função de $w$. Obtivémos o seguinte gráfico com os pontos experimentais e a curva teórica:
+
+
+\begin{center}
+    \includegraphics[angle=0,width=0.8\textwidth]{XXX.png}
+    \captionof{figure}{Gráfico teórico de  $|T|_{dB}$ em função de $w$ e plot dos pontos experimentais para o filtro de Rauch.}
+    \label{fig:XXX}
+    \end{center}
+
+Podemos notar no gráfico \ref{fig:XXX} uma translação dos pontos experimentais no sentido negativo do eixo dos $xx$ face à curva teórica ($w_{o_{exp}}<w_{o_{teo}}$ é uma consequência disso). Comparando os resultados gráficos teóricos e experimentais, podemos referir que não existe uma diferença observável entre os declives da curva teórica face aos declives da possível curva de ajuste aos pontos experimentais. Portanto podemos esperar que a ordem do filtro Passa-Banda de Rauch em laboratório seja a mesma que a teórica, $n=2$.   \\
+\par
+Determinemos de forma mais metódica a ordem do filtro de Rauch utilizado. Tratando-se de um filtro passa-banda, sabe-se que possui zeros na origem. Como os pólos do sistema se encontram tipicamente perto da banda passante, podemos admitir que o declive do diagrama de bode de amplitude para baixas frequências se deve à contribuição dos zeros na origem unicamente. Estimando esse declive com diferenças finitas aplicadas aos dois pontos experimentais de menor frequência, obteve-se um declive de $\Delta_1=21.8655$ dB/década, o que sugere a existência de um zero na origem, dado que na resposta em amplitude cada zero contribui positivamente com $20$ dB/década. Analogamente, se utilizarmos pontos experimentais com frequências superiores às da banda passante, obtemos um declive nas altas frequências de $\Delta_2=-19.0119$ dB/década, o que implica que existe um pólo a cancelar o efeito na magnitude do zero descoberto anteriormente e outro pólo adicional a contribuir negativamente com $20$ dB/década. Daqui se conclui, portanto, que o sistema real tem 2 pólos, ou seja, que o filtro de Rauch real é de segunda ordem. \\
+\par
+Para a determinação da largura de banda, realizámos um ajuste dos pontos $(w,|T(w)|_{dB})$ com a seguinte função-base:
+
+$$|T(w)|_{dB}=20log_{10}\left(\frac{KBw}{\sqrt{B^2w^2+(w_o^2-w^2)^2}}\right)$$
+
+em que usámos $w_o=w_{o_{exp}}$, (sendo $B$ o único parâmetro livre). É importante referir que $B$ poderia não corresponder à largura de banda do filtro, pois a associação de $B$ ao sentido físico largura de banda, só é correta se a função de transferência real do filtro de Rauch se se comportar como uma função de transferência tipo Butterworth de determinada ordem. Caso, a função de transferência real do filtro não fosse semelhante à expressão de Butterworth teórica, então o valor do parâmetro livre $B$ obtido do ajuste apresentaria um sentido puramente matemático, não podendo caracterizar fisicamente o circuito. No entanto, tal não aconteceu, podemos verificar por \ref{fig:XXX} que a curva teórica e os pontos experimentais são quase coicindentes à excepção de uma translação dos pontos no sentido negativo do eixo dos $xx$ face à curva.  \\
+\par
+Obtivémos assim o seguinte gráfico de ajuste:
+
+
+\begin{center}
+    \includegraphics[angle=0,width=0.8\textwidth]{Fit.png}
+    \captionof{figure}{Gráfico de ajuste dos pontos experimentais.}
+    \label{fig:Fit}
+    \end{center}
+
+O ajuste devolveu-nos o valor do parâmetro livre $B=1431.44$. Evidenciemos assim o valor experimental de $B$ e o seu desvio ao valor teórico:
+
+$$B_{exp}=1431.44 \text{ rad/s}, \hspace{15pt} \sigma_B=9.11\%$$ 
+
+Este desvio pode ser explicado, mais uma vez (igualmente referido em cima), pelas não idealidades do circuito.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%acaba aqui a edição
+\subsection{Montagem com circuito atenuador - comparação das formas de onda de saída do Oscilador e do filtro}
+
+Experimentalmente, implementou-se na mesma \textit{bread board} que os circuitos anteriores, o circuito atenuador representado pela figura seguinte:
+
+\begin{center}
+    \includegraphics[angle=0,width=0.7\textwidth]{CA.png}
+    \captionof{figure}{Circuito atenuador.}
+    \label{fig:CA}
+    \end{center}
+    
+Ligámos a saída $v_M$ do oscilador à entrada $v_M$ do atenuador e a saída deste, $v_i$, à entrada $v_i$ do circuito filtro passa-banda de Rauch. Regulámos o potenciómetro $P_1$ de forma a que a saturação do sinal de saída não ocorresse.\\
+Realizámos um \textit{print screen} dos sinais recebidos pelo osciloscópio, estando este apresentado na seguinte figura:
+
+\begin{center}
+    \includegraphics[angle=0,width=0.7\textwidth]{Comp.png}
+    \captionof{figure}{\textit{Print screen} dos sinais $v_M(t)$ (a amarelo) e $v_o(t)$ (a verde) obtidos no osciloscópio digital.}
+    \label{fig:Comp}
+    \end{center}
+
+De forma a podermos comparar mais eficazmente os dois gráficos considerámos a seguinte figura em que o referencial é coincidente para ambos:
+
+\begin{center}
+    \includegraphics[angle=0,width=0.8\textwidth]{Comp2.png}
+    \captionof{figure}{Gráfico dos sinais da saída do oscilador, $v_M(t)$, e saída do filtro passa-banda de Rauch, $v_o(t)$.}
+    \label{fig:Comp2}
+    \end{center}
+    
+    Podemos verificar pela análise do gráfico, que a saída do passa-banda de Rauch, $v_o(t)$ corresponde a um sinal sinusoidal quase perfeito (notam-se algumas perturbações no sinal). Verifica-se ainda que as frequências do sinal de saída do oscilador, $v_M$, e o sinal de saída do filtro de Rauch, $v_o$, apresentam praticamente o mesma valor. Isto deve-se ao facto da frequência do oscilador ($f_{exp}=877.19Hz$) e a frequência central do passa-banda ($f_{{o}_{exp}}=907.5Hz$) serem bastante próximas.
+    
+\paragraph{}
+Uma onda quadrada pode ser descrita pela soma de ondas sinusoidais de um espectro de frequências. A onda quadrada apresenta uma frequência $f$ correspondente à frequência da 1ª onda sinusoidal da série de Fourier que a forma. Esta 1ª onda sinusoidal tem a característica de ser máxima no centro do patamar ``High'' e mínima no centro do patamar ``Low''. Podemos notar que esta onda coincide em frequência ao sinal do passa-banda de Rauch (apenas existe uma inversão de sinal e uma atenuação em amplitude). Isto deve-se ao facto do filtro de Rauch atenuar fortemente sinais cuja frequência é diferente da frequência central $f_o$, sendo que neste caso a frequência da onda quadrada é bastante próxima da frequência central do filtro. Praticamente, do espectro de sinais sinusoidais que formam a onda quadrada, apenas o sinal sinusoidal de frequência central $f_o$ é privilegiado e obtém-se o gráfico da figura \ref{fig:Comp2}.
+
+
+\subsection{Sugestão de alteração ao filtro por forma a se obter um sinal mais sinusoidal}
+
+\paragraph{}
+Apesar de se ter obtido uma onda bastante satisfatória, é de grande interesse ter uma atenuação eficaz das frequências fora da banda passante, de modo a obter uma onda sinusoidal perfeita. Como foi dito anteriormente, uma onda quadrada pode ser descrita pela soma de ondas sinusoidais de um espectro de frequências. Deste modo, é essencial filtrar todas as frequências que divergem da frequência central do filtro, para se ficar apenas com uma única onda sinusoidal.
+\paragraph{}
+Assim, tendo em vista um melhor sinal à saída do filtro passa-banda, é sugerida a alteração no dimensionamento dos componentes utilizados de modo a diminuir o ganho do sinal, e também diminuir a largura de banda do filtro, garantindo que o factor de qualidade se mantém constante (isto é, taç que a relação $Q=\frac{w_o}{\Delta w}$ continue fixa). Diminuindo o ganho ter-se-ia uma maior atenuação das frequências fora da banda passante, mas com a consequência de diminuir a amplitude do sinal à saída do filtro. Ao diminuir a largura de banda poderia evitar-se também a passagem de frequências não desejadas, sendo imperativa uma igual diminuição da frequência central, $w_o$, de forma a que o factor de qualidade $Q$ fique constante.
+
+\chapter{Conclusões}
+
+\paragraph{}Nesta sessão laboratorial foi possível verificar o correto funcionamento de um filtro passa-banda, que tem como objetivo atenuar frequências afastadas de uma frequência central. Numa primeira parte, verificou-se, através de um osciloscópio, que o oscilador funciona como esperado, com uma frequência e $duty-cycle$ bastante próximos dos esperados teoricamente, fazendo assim a correta alimentação de um LED emissor de infravermelhos.
+
+\paragraph{}
+Na análise do filtro passa-banda, verificou-se que os pontos obtidos experimentalmente não seguem exatamente a curva dada pelo modelo teórico, no entanto, consideramos os resultados bastante satisfatórios. Obtivemos desvios significativos para a frequência central e largura de banda, os dois próximos de 10\%, o que atribuímos às não idealidades dos componentes que integram os circuitos utilizados e aos métodos pouco robustos utilizados no tratamento dos dados provenientes do osciloscópio, nomeadamente a estimação de amplitudes de sinal.
+
+\paragraph{}
+Foi possível entender também qual o objetivo de utilizar o filtro neste circuito, que permite filtrar qualquer frequência de ruído que possa aparecer, fazendo assim com que o circuito retificador apenas receba a frequência pretendida, de modo a calcular o mais precisamente possível a proximidade do obstáculo.
+
+
+
+
+
+
+
+
+
+\end{document}

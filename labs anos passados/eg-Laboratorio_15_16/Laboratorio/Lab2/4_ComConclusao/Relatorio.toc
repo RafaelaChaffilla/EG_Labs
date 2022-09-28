@@ -1,0 +1,25 @@
+\select@language {english}
+\select@language {portuges}
+\thispagestyle {empty}
+\contentsline {chapter}{\numberline {1}Estudo funcional do conversor D/A}{2}{chapter.2}
+\contentsline {section}{\numberline {1.1}An\IeC {\'a}lise Te\IeC {\'o}rica}{2}{section.3}
+\contentsline {subsection}{\numberline {1.1.1}Obten\IeC {\c c}\IeC {\~a}o da express\IeC {\~a}o te\IeC {\'o}rica para a tens\IeC {\~a}o de sa\IeC {\'\i }da do conversor, $v_o$, em fun\IeC {\c c}\IeC {\~a}o da palavra digital}{2}{subsection.4}
+\contentsline {section}{\numberline {1.2}An\IeC {\'a}lise Experimental}{6}{section.20}
+\contentsline {subsection}{\numberline {1.2.1}Obten\IeC {\c c}\IeC {\~a}o dos valores da tens\IeC {\~a}o de sa\IeC {\'\i }da, $v_o$, em fun\IeC {\c c}\IeC {\~a}o da palavra digital produzida por $S_1$, $S_2$, $S_3$ e $S_4$, com $R_f=2R$ e $R_f=4R$}{6}{subsection.21}
+\contentsline {subsection}{\numberline {1.2.2}Obten\IeC {\c c}\IeC {\~a}o das formas de onda dos gr\IeC {\'a}ficos $v_o(t)$ e $v_{Clk}(t)$ para $R_f=2R$ e $R_f=4R$ a partir do oscilosc\IeC {\'o}pio digital}{7}{subsection.23}
+\contentsline {subsection}{\numberline {1.2.3}Varia\IeC {\c c}\IeC {\~a}o da tens\IeC {\~a}o de sa\IeC {\'\i }da do conversor observada entre dois n\IeC {\'\i }veis consecutivos, para os dois valores diferentes de $R_f$ }{8}{subsection.26}
+\contentsline {chapter}{\numberline {2}Influ\IeC {\^e}ncia das resist\IeC {\^e}ncias de entrada}{14}{chapter.42}
+\contentsline {section}{\numberline {2.1}An\IeC {\'a}lise Te\IeC {\'o}rica}{14}{section.43}
+\contentsline {subsection}{\numberline {2.1.1}Determina\IeC {\c c}\IeC {\~a}o da influ\IeC {\^e}ncia da varia\IeC {\c c}\IeC {\~a}o das resist\IeC {\^e}ncias $R_1$ a $R_4$, variando uma de cada vez}{14}{subsection.44}
+\contentsline {subsection}{\numberline {2.1.2}Determina\IeC {\c c}\IeC {\~a}o das altera\IeC {\c c}\IeC {\~o}es nas caracter\IeC {\'\i }sticas do circuito diminuindo o valor de uma das resist\IeC {\^e}ncias de $R_1$ a $R_4$, uma de cada vez}{25}{subsection.60}
+\contentsline {section}{\numberline {2.2}An\IeC {\'a}lise Experimental}{27}{section.65}
+\contentsline {subsection}{\numberline {2.2.1}Obten\IeC {\c c}\IeC {\~a}o das formas de onda dos gr\IeC {\'a}ficos $v_o(t)$ e $v_{Clk}(t)$}{27}{subsection.66}
+\contentsline {subsection}{\numberline {2.2.2}Monoticidade do conversor}{27}{subsection.69}
+\contentsline {chapter}{\numberline {3}Tempo de estabelecimento}{29}{chapter.70}
+\contentsline {section}{\numberline {3.1}An\IeC {\'a}lise Te\IeC {\'o}rica}{29}{section.72}
+\contentsline {section}{\numberline {3.2}An\IeC {\'a}lise Experimental}{30}{section.77}
+\contentsline {chapter}{\numberline {4}Picos de tens\IeC {\~a}o na transi\IeC {\c c}\IeC {\~a}o de estados}{35}{chapter.173}
+\contentsline {section}{\numberline {4.1}Sinal de entrada e sa\IeC {\'\i }da}{35}{section.174}
+\contentsline {section}{\numberline {4.2}Picos de tens\IeC {\~a}o esp\IeC {\'u}rios}{35}{section.176}
+\contentsline {section}{\numberline {4.3}An\IeC {\'a}lise de Resultados}{36}{section.178}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es}{37}{chapter.179}

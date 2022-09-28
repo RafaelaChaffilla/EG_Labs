@@ -1,0 +1,28 @@
+\BOOKMARK [0][-]{chapter.2}{Sec\347\343o Biquadr\341tica de Kerwin, Huelsman e Newcomb \(KHN\)}{}% 1
+\BOOKMARK [1][-]{section.3}{Fun\347\365es de transfer\352ncia a partir do DFS}{chapter.2}% 2
+\BOOKMARK [1][-]{section.6}{An\341lise do Circuito}{chapter.2}% 3
+\BOOKMARK [1][-]{section.14}{Resultados obtidos e diagramas de Bode}{chapter.2}% 4
+\BOOKMARK [1][-]{section.23}{Valores te\363ricos e experimentais de K, p e Q}{chapter.2}% 5
+\BOOKMARK [1][-]{section.30}{Influ\352ncia do Potenci\363metro nas Caracter\355sticas do Filtro}{chapter.2}% 6
+\BOOKMARK [0][-]{chapter.42}{Sec\347\343o biquadr\341tica de Tow-Thomas}{}% 7
+\BOOKMARK [1][-]{section.44}{Fun\347\365es de transfer\352ncia e DFS}{chapter.42}% 8
+\BOOKMARK [1][-]{section.50}{An\341lise do circuito}{chapter.42}% 9
+\BOOKMARK [1][-]{section.52}{Resultados obtidos e diagramas de Bode}{chapter.42}% 10
+\BOOKMARK [1][-]{section.56}{Influ\352ncia do Potenci\363metro nas Caracter\355sticas do Filtro}{chapter.42}% 11
+\BOOKMARK [0][-]{chapter.62}{Conclus\365es}{}% 12
+\BOOKMARK [0][-]{chapter.63}{Oscilador de Onda Rectangular}{}% 13
+\BOOKMARK [1][-]{section.64}{An\341lise Te\363rica}{chapter.63}% 14
+\BOOKMARK [2][-]{subsection.65}{Forma de onda dos sinais vC\(t\) e vM\(t\). Obten\347\343o da frequ\352ncia de oscila\347\343o, f e duty cycle}{section.64}% 15
+\BOOKMARK [2][-]{subsection.80}{Estimativa do valor m\341ximo de corrente no d\355odo, iD}{section.64}% 16
+\BOOKMARK [1][-]{section.83}{An\341lise experimental}{chapter.63}% 17
+\BOOKMARK [2][-]{subsection.84}{Esbo\347o das forma de onda na sa\355da do Oscilador, vM\(t\). Obten\347\343o de frequ\352ncia de oscila\347\343o, f e duty cycle}{section.83}% 18
+\BOOKMARK [2][-]{subsection.86}{Esbo\347o das forma de onda da tens\343o aos terminais do condensador C1, vC\(t\). Obten\347\343o de frequ\352ncia de oscila\347\343o, f}{section.83}% 19
+\BOOKMARK [2][-]{subsection.88}{Estimativa do valor m\341ximo de corrente no d\355odo, iD, tendo em conta o valor experimental de vM}{section.83}% 20
+\BOOKMARK [0][-]{chapter.89}{Sec\347\343o Biquadr\341tica de Rauch}{}% 21
+\BOOKMARK [1][-]{section.90}{An\341lise Te\363rica}{chapter.89}% 22
+\BOOKMARK [2][-]{subsection.91}{Determina\347\343o da fun\347\343o de transfer\352ncia, T, do filtro de Butterwoth com as caracter\355sticas requeridas}{section.90}% 23
+\BOOKMARK [1][-]{section.93}{An\341lise Experimental}{chapter.89}% 24
+\BOOKMARK [2][-]{subsection.94}{Obten\347\343o da frequ\352ncia central, fo, ganho \340 frequ\352ncia central, |Tm\341x|, largura de banda, B, e ordem do filtro, n}{section.93}% 25
+\BOOKMARK [2][-]{subsection.98}{Montagem com circuito atenuador - compara\347\343o das formas de onda de sa\355da do Oscilador e do filtro}{section.93}% 26
+\BOOKMARK [2][-]{subsection.102}{Sugest\343o de altera\347\343o ao filtro por forma a se obter um sinal mais sinusoidal}{section.93}% 27
+\BOOKMARK [0][-]{chapter.103}{Conclus\365es}{}% 28

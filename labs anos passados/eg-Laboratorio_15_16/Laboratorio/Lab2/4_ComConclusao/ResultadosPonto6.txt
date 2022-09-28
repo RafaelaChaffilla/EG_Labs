@@ -1,0 +1,4 @@
+Tempo de estabelecimento:    4.533 us
+Slew Rate:    0.683 
+Erro relativo do Tempo de estabelecimento:   27.467 % 
+Erro relativo do Slew Rate:   36.565 % 

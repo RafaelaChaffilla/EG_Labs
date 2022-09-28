@@ -1,0 +1,17 @@
+\select@language {english}
+\select@language {portuges}
+\thispagestyle {empty}
+\contentsline {chapter}{\numberline {1}Sec\IeC {\c c}\IeC {\~a}o Biquadr\IeC {\'a}tica de Kerwin, Huelsman e Newcomb (KHN)}{2}{chapter.2}
+\contentsline {section}{\numberline {1.1}Fun\IeC {\c c}\IeC {\~o}es de transfer\IeC {\^e}ncia a partir do DFS}{2}{section.3}
+\contentsline {section}{\numberline {1.2}An\IeC {\'a}lise do Circuito}{3}{section.6}
+\contentsline {section}{\numberline {1.3}Resultados obtidos e diagramas de Bode}{5}{section.14}
+\contentsline {paragraph}{}{5}{Item.19}
+\contentsline {section}{\numberline {1.4}Valores te\IeC {\'o}ricos e experimentais de $K$, $\omega _p$ e $Q$}{7}{section.23}
+\contentsline {section}{\numberline {1.5}Influ\IeC {\^e}ncia do Potenci\IeC {\'o}metro nas Caracter\IeC {\'\i }sticas do Filtro}{9}{section.30}
+\contentsline {chapter}{\numberline {2}Sec\IeC {\c c}\IeC {\~a}o biquadr\IeC {\'a}tica de Tow-Thomas}{12}{chapter.42}
+\contentsline {section}{\numberline {2.1}Fun\IeC {\c c}\IeC {\~o}es de transfer\IeC {\^e}ncia e DFS}{12}{section.44}
+\contentsline {paragraph}{}{12}{figure.45}
+\contentsline {section}{\numberline {2.2}An\IeC {\'a}lise do circuito}{14}{section.50}
+\contentsline {section}{\numberline {2.3}Resultados obtidos e diagramas de Bode}{15}{section.52}
+\contentsline {section}{\numberline {2.4}Influ\IeC {\^e}ncia do Potenci\IeC {\'o}metro nas Caracter\IeC {\'\i }sticas do Filtro}{17}{section.56}
+\contentsline {chapter}{\numberline {3}Conclus\IeC {\~o}es}{21}{chapter.62}

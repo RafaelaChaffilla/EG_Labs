@@ -1,0 +1,23 @@
+\select@language {english}
+\select@language {portuges}
+\thispagestyle {empty}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{2}{chapter.2}
+\contentsline {chapter}{\numberline {2}Baralhador de Dados}{3}{chapter.4}
+\contentsline {section}{\numberline {2.1}Implementa\IeC {\c c}\IeC {\~a}o}{3}{section.5}
+\contentsline {section}{\numberline {2.2}Teste e An\IeC {\'a}lise}{4}{section.9}
+\contentsline {chapter}{\numberline {3}H\IeC {\'\i }brido}{7}{chapter.18}
+\contentsline {section}{\numberline {3.1}Implementa\IeC {\c c}\IeC {\~a}o}{7}{section.19}
+\contentsline {section}{\numberline {3.2}Teste e An\IeC {\'a}lise}{7}{section.22}
+\contentsline {chapter}{\numberline {4}Cancelador de Eco}{10}{chapter.25}
+\contentsline {section}{\numberline {4.1}Esquematiza\IeC {\c c}\IeC {\~a}o do sistema de teste}{10}{section.26}
+\contentsline {section}{\numberline {4.2}Implementa\IeC {\c c}\IeC {\~a}o}{11}{section.30}
+\contentsline {subsubsection}{Cancelador de Eco}{11}{section.30}
+\contentsline {subsubsection}{ERLE}{12}{equation.33}
+\contentsline {section}{\numberline {4.3}Teste e An\IeC {\'a}lise}{13}{section.38}
+\contentsline {chapter}{\numberline {5}Sistema Total}{16}{chapter.43}
+\contentsline {section}{\numberline {5.1}Implementa\IeC {\c c}\IeC {\~a}o}{16}{section.44}
+\contentsline {section}{\numberline {5.2}Teste e An\IeC {\'a}lise}{17}{section.46}
+\contentsline {subsection}{\numberline {5.2.1}Teste do sistema sem ru\IeC {\'\i }do}{17}{subsection.47}
+\contentsline {subsection}{\numberline {5.2.2}Teste do sistema com ru\IeC {\'\i }do}{27}{subsection.61}
+\contentsline {paragraph}{}{28}{figure.63}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~o}es}{30}{chapter.66}

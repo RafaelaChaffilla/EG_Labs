@@ -1,0 +1,46 @@
+\select@language {english}
+\select@language {portuges}
+\thispagestyle {empty}
+\contentsline {chapter}{\numberline {1}Sec\IeC {\c c}\IeC {\~a}o Biquadr\IeC {\'a}tica de Kerwin, Huelsman e Newcomb (KHN)}{2}{chapter.2}
+\contentsline {section}{\numberline {1.1}Fun\IeC {\c c}\IeC {\~o}es de transfer\IeC {\^e}ncia a partir do DFS}{2}{section.3}
+\contentsline {section}{\numberline {1.2}An\IeC {\'a}lise do Circuito}{3}{section.6}
+\contentsline {section}{\numberline {1.3}Resultados obtidos e diagramas de Bode}{5}{section.14}
+\contentsline {paragraph}{}{5}{Item.19}
+\contentsline {section}{\numberline {1.4}Valores te\IeC {\'o}ricos e experimentais de $K$, $\omega _p$ e $Q$}{7}{section.23}
+\contentsline {section}{\numberline {1.5}Influ\IeC {\^e}ncia do Potenci\IeC {\'o}metro nas Caracter\IeC {\'\i }sticas do Filtro}{9}{section.30}
+\contentsline {chapter}{\numberline {2}Sec\IeC {\c c}\IeC {\~a}o biquadr\IeC {\'a}tica de Tow-Thomas}{12}{chapter.42}
+\contentsline {section}{\numberline {2.1}Fun\IeC {\c c}\IeC {\~o}es de transfer\IeC {\^e}ncia e DFS}{12}{section.44}
+\contentsline {paragraph}{}{12}{figure.45}
+\contentsline {section}{\numberline {2.2}An\IeC {\'a}lise do circuito}{14}{section.50}
+\contentsline {section}{\numberline {2.3}Resultados obtidos e diagramas de Bode}{15}{section.52}
+\contentsline {section}{\numberline {2.4}Influ\IeC {\^e}ncia do Potenci\IeC {\'o}metro nas Caracter\IeC {\'\i }sticas do Filtro}{17}{section.56}
+\contentsline {chapter}{\numberline {3}Conclus\IeC {\~o}es}{21}{chapter.62}
+\contentsline {paragraph}{}{21}{chapter.62}
+\contentsline {paragraph}{}{21}{chapter.62}
+\contentsline {paragraph}{}{21}{chapter.62}
+\contentsline {chapter}{\numberline {4}Oscilador de Onda Rectangular}{22}{chapter.63}
+\contentsline {section}{\numberline {4.1}An\IeC {\'a}lise Te\IeC {\'o}rica}{22}{section.64}
+\contentsline {subsection}{\numberline {4.1.1}Forma de onda dos sinais $v_C(t)$ e $v_M(t)$. Obten\IeC {\c c}\IeC {\~a}o da frequ\IeC {\^e}ncia de oscila\IeC {\c c}\IeC {\~a}o, $f$ e \textit {duty cycle}}{22}{subsection.65}
+\contentsline {subsection}{\numberline {4.1.2}Estimativa do valor m\IeC {\'a}ximo de corrente no d\IeC {\'\i }odo, $i_D$}{25}{subsection.80}
+\contentsline {section}{\numberline {4.2}An\IeC {\'a}lise experimental}{26}{section.83}
+\contentsline {subsection}{\numberline {4.2.1}Esbo\IeC {\c c}o das forma de onda na sa\IeC {\'\i }da do Oscilador, $v_M(t)$. Obten\IeC {\c c}\IeC {\~a}o de frequ\IeC {\^e}ncia de oscila\IeC {\c c}\IeC {\~a}o, $f$ e \textit {duty cycle}}{26}{subsection.84}
+\contentsline {paragraph}{}{26}{figure.85}
+\contentsline {subsection}{\numberline {4.2.2}Esbo\IeC {\c c}o das forma de onda da tens\IeC {\~a}o aos terminais do condensador $C_1$, $v_C(t)$. Obten\IeC {\c c}\IeC {\~a}o de frequ\IeC {\^e}ncia de oscila\IeC {\c c}\IeC {\~a}o, $f$}{27}{subsection.86}
+\contentsline {subsection}{\numberline {4.2.3}Estimativa do valor m\IeC {\'a}ximo de corrente no d\IeC {\'\i }odo, $i_D$, tendo em conta o valor experimental de $v_M$}{27}{subsection.88}
+\contentsline {paragraph}{}{27}{subsection.88}
+\contentsline {paragraph}{}{27}{subsection.88}
+\contentsline {chapter}{\numberline {5}Sec\IeC {\c c}\IeC {\~a}o Biquadr\IeC {\'a}tica de Rauch}{28}{chapter.89}
+\contentsline {section}{\numberline {5.1}An\IeC {\'a}lise Te\IeC {\'o}rica}{28}{section.90}
+\contentsline {subsection}{\numberline {5.1.1}Determina\IeC {\c c}\IeC {\~a}o da fun\IeC {\c c}\IeC {\~a}o de transfer\IeC {\^e}ncia, $T$, do filtro de Butterwoth com as caracter\IeC {\'\i }sticas requeridas}{28}{subsection.91}
+\contentsline {section}{\numberline {5.2}An\IeC {\'a}lise Experimental}{28}{section.93}
+\contentsline {subsection}{\numberline {5.2.1}Obten\IeC {\c c}\IeC {\~a}o da frequ\IeC {\^e}ncia central, $f_o$, ganho \IeC {\`a} frequ\IeC {\^e}ncia central, $\left |T_{m\IeC {\'a}x}\right |$, largura de banda, $B$, e ordem do filtro, $n$}{28}{subsection.94}
+\contentsline {paragraph}{}{28}{subsection.94}
+\contentsline {subsection}{\numberline {5.2.2}Montagem com circuito atenuador - compara\IeC {\c c}\IeC {\~a}o das formas de onda de sa\IeC {\'\i }da do Oscilador e do filtro}{31}{subsection.98}
+\contentsline {paragraph}{}{33}{figure.101}
+\contentsline {subsection}{\numberline {5.2.3}Sugest\IeC {\~a}o de altera\IeC {\c c}\IeC {\~a}o ao filtro por forma a se obter um sinal mais sinusoidal}{33}{subsection.102}
+\contentsline {paragraph}{}{33}{subsection.102}
+\contentsline {paragraph}{}{33}{subsection.102}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~o}es}{34}{chapter.103}
+\contentsline {paragraph}{}{34}{chapter.103}
+\contentsline {paragraph}{}{34}{chapter.103}
+\contentsline {paragraph}{}{34}{chapter.103}
