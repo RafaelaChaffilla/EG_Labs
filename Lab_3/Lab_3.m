@@ -26,7 +26,11 @@ Reciever.Amp    = 0;
 G               = 0;
 
 %% 5.1
-
+figure()
+hold on;
+for i=1:size(out.Cancelador_Eco_Data.signals.values,2)
+    plot(out.Cancelador_Eco_Data.time,out.Cancelador_Eco_Data.signals.values(:,i));
+end
 % For dead Reciever and Emitter
 
 holder = sim('modelo_completo');
