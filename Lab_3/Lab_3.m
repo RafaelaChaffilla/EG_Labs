@@ -1,5 +1,5 @@
 %% First Parameters Configuration
-
+sampleTime = 0.03;
 % Configuration of FIR
 FIR_Standard = [0       ;
                 0.2     ;
