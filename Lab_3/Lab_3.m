@@ -10,7 +10,7 @@ FIR_Standard = [0       ;
                 -0.4    ;
                 -0.1    ;
                 0.1     ;
-                -0.05   ;
+                -0.05   ;sample
                 -0.02   ;
                 -0.01   ];
 FIR = FIR_Standard;
@@ -109,7 +109,7 @@ xlabel("Tempo [s]");
 % xticks(0:1:15);
 % ylabel("Saída do Híbrido");
 % xlabel("Amostra");
-% sampleTime = 0.03;
+% sampleTime = 0.1;
 
 %% 5.3
 Reciever.Amp    = 1;
